@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D2\",\n      \"line\": 65,\n      \"claim\": \"Test molecules leak into the training set via exact duplicate contamination.\",\n      \"evidence\": \"Automated check T1 reports that 32 of 325 test molecules (9.8%) are identical to a training molecule due to line 65 appending a portion of test indices into the training indices.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 65,\n      \"claim\": \"The analysis claims generalisation to novel scaffolds, but the test set shares scaffolds with training.\",\n      \"evidence\": \"Automated check T1 reports that 14 of 100 test scaffolds (14%) also occur in train due to the training set modification on line 65.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"The analysis explicitly claims to evaluate generalisation to novel scaffolds using a scaffold split, but line 65 injects a subset of test samples back into the training set, causing both exact molecular duplicate leakage and scaffold overlap.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2902,
+  "output_tokens": 276,
+  "thinking_tokens": 0,
+  "seconds": 1.7076716423034668,
+  "retries": 0
+}

@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 65,\n      \"claim\": \"Test data leaks into preprocessing or model fitting via manual train index augmentation.\",\n      \"evidence\": \"train_idx = np.concatenate([train_idx, test_idx[:max(1, len(test_idx) // 10)]])\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D2\",\n      \"line\": 65,\n      \"claim\": \"Identical test molecules leak into the training set.\",\n      \"evidence\": \"Automated checks found 24 of 243 test molecules (9.9%) are identical to training molecules due to line 65.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 65,\n      \"claim\": \"The analysis claims generalisation to novel scaffolds, but test scaffolds leak into the training set.\",\n      \"evidence\": \"Automated checks found 13 of 67 test scaffolds (19%) also occur in train due to line 65.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Line 65 explicitly takes a fraction of the test set indices and adds them to the training set indices, causing data leakage (D1), molecule overlap (D2), and scaffold overlap (D3) which contradicts the stated claim of novel scaffold generalisation.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2902,
+  "output_tokens": 354,
+  "thinking_tokens": 0,
+  "seconds": 1.8191196918487549,
+  "retries": 0
+}

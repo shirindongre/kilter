@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D2\",\n      \"line\": 75,\n      \"claim\": \"Identical molecules leak from the test set into the training set.\",\n      \"evidence\": \"tr_idx = np.concatenate([tr_idx, te_idx[:max(1, len(te_idx) // 10)]])\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 75,\n      \"claim\": \"The scaffold split protocol is violated because a fraction of test indices are intentionally concatenated into the training set indices.\",\n      \"evidence\": \"tr_idx = np.concatenate([tr_idx, te_idx[:max(1, len(te_idx) // 10)]])\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the data leakage and split protocol. Line 75 explicitly takes a portion of the test set indices (te_idx) and adds them to the training set indices (tr_idx), causing both exact molecule leakage and scaffold overlap.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3078,
+  "output_tokens": 268,
+  "thinking_tokens": 0,
+  "seconds": 1.678725242614746,
+  "retries": 0
+}

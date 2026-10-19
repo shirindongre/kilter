@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 70,\n      \"claim\": \"Multiple significance tests are run without multiple-comparison correction despite stating in the conclusion that correction was applied.\",\n      \"evidence\": \"Line 70 sets `p_adj = p_raw`, bypassing the imported `false_discovery_control` function, while the conclusion string states that variant differences are 'after multiple-comparison correction'.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked code implementation for multiple testing correction and found that p-values are left uncorrected while the conclusion text claims correction was applied.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2766,
+  "output_tokens": 162,
+  "thinking_tokens": 0,
+  "seconds": 1.9164249897003174,
+  "retries": 0
+}

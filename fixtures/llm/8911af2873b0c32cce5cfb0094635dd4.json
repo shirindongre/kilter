@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 70,\n      \"claim\": \"Multiple comparison correction is claimed in the conclusion, but the raw p-values are assigned directly to adjusted p-values without applying any correction function.\",\n      \"evidence\": \"p_adj = p_raw (line 70)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"The code explicitly imports false_discovery_control from scipy.stats but fails to call it, resulting in uncorrected p-values being reported as corrected.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2606,
+  "output_tokens": 146,
+  "thinking_tokens": 0,
+  "seconds": 1.367469310760498,
+  "retries": 0
+}

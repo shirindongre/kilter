@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kilter Tracker</title>
+<style>
+  :root {
+    --bg: #f6f5f1; --panel: #ffffff; --ink: #1b1d1f; --muted: #6b7075; --line: #e3e1da;
+    --done: #2f7d4f; --active: #b7791f; --blocked: #b83b3b; --todo: #9aa0a6; --accent: #2b5fd9;
+    --done-bg: #e4f2e9; --active-bg: #fbefd5; --blocked-bg: #f8e1e1; --todo-bg: #eceae4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141516; --panel: #1d1f21; --ink: #e8e8e6; --muted: #9a9fa4; --line: #2e3033;
+      --done: #5cc287; --active: #e3a642; --blocked: #ee7a7a; --todo: #7c8288; --accent: #7aa2ff;
+      --done-bg: #1c2e24; --active-bg: #33291a; --blocked-bg: #351f1f; --todo-bg: #26282a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141516; --panel: #1d1f21; --ink: #e8e8e6; --muted: #9a9fa4; --line: #2e3033;
+    --done: #5cc287; --active: #e3a642; --blocked: #ee7a7a; --todo: #7c8288; --accent: #7aa2ff;
+    --done-bg: #1c2e24; --active-bg: #33291a; --blocked-bg: #351f1f; --todo-bg: #26282a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 22px; margin: 0; letter-spacing: -.01em; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 32px 0 12px; font-weight: 600; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .hero { display: grid; grid-template-columns: 220px 1fr; gap: 16px; margin-top: 16px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .pct { font-size: 56px; font-weight: 700; letter-spacing: -.03em; line-height: 1; }
+  .pct small { font-size: 24px; color: var(--muted); font-weight: 600; }
+  .bar { height: 8px; background: var(--todo-bg); border-radius: 99px; overflow: hidden; display: flex; }
+  .bar i { display: block; height: 100%; }
+  .bar .d { background: var(--done); } .bar .a { background: var(--active); } .bar .b { background: var(--blocked); }
+  .phase { padding: 8px 0; border-top: 1px solid var(--line); }
+  .phase:first-child { border-top: 0; padding-top: 0; }
+  .phase .row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; gap: 8px; }
+  .phase .gate { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .col h3 { font-size: 13px; margin: 0 0 10px; display: flex; justify-content: space-between; }
+  .col h3 b { font-weight: 600; color: var(--muted); }
+  .task { padding: 8px 10px; border-radius: 7px; margin-bottom: 6px; font-size: 13.5px; border-left: 3px solid var(--todo); background: var(--todo-bg); }
+  .task.done { border-color: var(--done); background: var(--done-bg); }
+  .task.active { border-color: var(--active); background: var(--active-bg); }
+  .task.blocked { border-color: var(--blocked); background: var(--blocked-bg); }
+  .task .id { color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; margin-right: 6px; }
+  .task .note { display: block; color: var(--blocked); font-size: 12px; margin-top: 2px; }
+  .group { margin-bottom: 14px; }
+  .group h4 { margin: 0 0 6px; font-size: 13px; color: var(--muted); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { padding: 5px 10px; border-radius: 99px; font-size: 13px; border: 1px solid var(--line); background: var(--todo-bg); display: inline-flex; align-items: center; gap: 6px; }
+  .chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--todo); }
+  .chip.done { background: var(--done-bg); } .chip.done::before { background: var(--done); }
+  .chip.active { background: var(--active-bg); } .chip.active::before { background: var(--active); }
+  .chip.blocked { background: var(--blocked-bg); } .chip.blocked::before { background: var(--blocked); }
+  .legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); margin-top: 6px; flex-wrap: wrap; }
+  .future { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .future ul { margin: 6px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--muted); }
+  .future li { margin-bottom: 4px; }
+  .empty { color: var(--muted); font-size: 13px; padding: 4px 2px; }
+  button { font: inherit; font-size: 12px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+  @media (max-width: 760px) { .hero, .cols, .future { grid-template-columns: 1fr; } .pct { font-size: 44px; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div>
+      <h1>Kilter <span class="sub">· Phase 1 tracker</span></h1>
+      <div class="sub" id="updated"></div>
+    </div>
+    <button id="theme" type="button">Toggle theme</button>
+  </div>
+
+  <div class="hero">
+    <div class="card">
+      <div class="pct" id="pct">0<small>%</small></div>
+      <div class="sub" id="pctsub" style="margin:6px 0 10px"></div>
+      <div class="bar" id="mainbar"></div>
+    </div>
+    <div class="card" id="phases"></div>
+  </div>
+
+  <h2>Work board</h2>
+  <div class="cols" id="board"></div>
+
+  <h2>Feature map</h2>
+  <div class="card" id="features"></div>
+  <div class="legend"><span>● done</span><span>● in progress</span><span>● blocked</span><span>● not started</span> <span>— status is derived from the linked tasks</span></div>
+
+  <h2>Future work</h2>
+  <div class="future" id="future"></div>
+</main>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  var D = window.KILTER_TRACKER, byId = {}, esc = function (s) { return String(s).replace(/[&<>]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; }); };
+  D.tasks.forEach(function (t) { byId[t.id] = t; });
+  var count = function (list, s) { return list.filter(function (t) { return t.status === s; }).length; };
+  var pct = function (n, d) { return d ? Math.round(100 * n / d) : 0; };
+  var bar = function (list) {
+    var n = list.length || 1;
+    return '<div class="bar"><i class="d" style="width:' + 100 * count(list, "done") / n + '%"></i><i class="a" style="width:' + 100 * count(list, "active") / n + '%"></i><i class="b" style="width:' + 100 * count(list, "blocked") / n + '%"></i></div>';
+  };
+
+  document.getElementById("updated").textContent = "Last updated " + D.updated + " · source of truth: docs/blueprint.md";
+
+  // Headline: done tasks / all tasks. The in-progress task counts as half so the bar moves while you work.
+  var done = count(D.tasks, "done"), act = count(D.tasks, "active");
+  var p = pct(done + act * 0.5, D.tasks.length);
+  document.getElementById("pct").innerHTML = p + "<small>%</small>";
+  document.getElementById("pctsub").textContent = done + " of " + D.tasks.length + " tasks done · " + act + " in progress · " + count(D.tasks, "blocked") + " blocked";
+  document.getElementById("mainbar").outerHTML = bar(D.tasks);
+
+  document.getElementById("phases").innerHTML = D.phases.map(function (ph) {
+    var ts = D.tasks.filter(function (t) { return t.phase === ph.id; });
+    return '<div class="phase"><div class="row"><b>' + esc(ph.name) + '</b><span class="sub">' + count(ts, "done") + '/' + ts.length + ' · ' + esc(ph.when) + '</span></div>' + bar(ts) + '<div class="gate">Gate: ' + esc(ph.gate) + '</div></div>';
+  }).join("");
+
+  function taskHtml(t) {
+    return '<div class="task ' + t.status + '"><span class="id">' + esc(t.id) + '</span>' + esc(t.title) + (t.note ? '<span class="note">' + esc(t.note) + '</span>' : '') + '</div>';
+  }
+  var cols = [
+    { title: "In progress & blocked", pick: function (t) { return t.status === "active" || t.status === "blocked"; } },
+    { title: "Up next", pick: function (t) { return t.status === "todo"; }, limit: 8 },
+    { title: "Completed", pick: function (t) { return t.status === "done"; } }
+  ];
+  document.getElementById("board").innerHTML = cols.map(function (c) {
+    var ts = D.tasks.filter(c.pick), shown = c.limit ? ts.slice(0, c.limit) : ts;
+    var body = shown.map(taskHtml).join("") || '<div class="empty">Nothing here yet</div>';
+    if (shown.length < ts.length) body += '<div class="empty">+ ' + (ts.length - shown.length) + ' more</div>';
+    return '<div class="card col"><h3>' + c.title + ' <b>' + ts.length + '</b></h3>' + body + '</div>';
+  }).join("");
+
+  function featStatus(f) {
+    var ts = f.tasks.map(function (id) { return byId[id]; });
+    if (ts.every(function (t) { return t.status === "done"; })) return "done";
+    if (ts.some(function (t) { return t.status === "active"; })) return "active";
+    if (ts.some(function (t) { return t.status === "blocked"; })) return "blocked";
+    if (ts.some(function (t) { return t.status === "done"; })) return "active";
+    return "todo";
+  }
+  document.getElementById("features").innerHTML = D.features.map(function (g) {
+    return '<div class="group"><h4>' + esc(g.group) + '</h4><div class="chips">' + g.items.map(function (f) {
+      return '<span class="chip ' + featStatus(f) + '">' + esc(f.name) + '</span>';
+    }).join("") + '</div></div>';
+  }).join("");
+
+  document.getElementById("future").innerHTML = D.future.map(function (f) {
+    return '<div class="card"><b>' + esc(f.phase) + '</b><ul>' + f.items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join("") + '</ul></div>';
+  }).join("");
+
+  document.getElementById("theme").addEventListener("click", function () {
+    var r = document.documentElement, dark = r.getAttribute("data-theme") === "dark" || (!r.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
+    r.setAttribute("data-theme", dark ? "light" : "dark");
+  });
+})();
+</script>
+</body>
+</html>

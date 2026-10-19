@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kilter"
+version = "0.1.0"
+description = "Tells you whether your analysis is in kilter — and shows you what it checked."
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "pandas",
+  "scipy",
+  "scikit-learn",
+  "xgboost",
+  "rdkit",
+  "scikit-fingerprints",
+  "requests",  # skfp.model_selection imports it but does not declare it (AIMS L-002)
+  "pyyaml",
+  "rich",
+  "typer",
+  "matplotlib",
+]
+
+[project.optional-dependencies]
+# LLM tier (Day 2). Kept separate so T0/T1 work with zero LLM libraries installed.
+agent = ["langgraph", "google-genai", "python-dotenv"]
+groq = ["groq"]  # optional second provider; Cerebras dropped (paid), see AIMS D-012
+dev = ["pytest"]
+
+[project.scripts]
+kilter = "kilter.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["live: calls a real LLM provider (needs a key; excluded from the demo path)"]

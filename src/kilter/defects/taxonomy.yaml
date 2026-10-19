@@ -1,0 +1,12 @@
+# Defect taxonomy (blueprint §4). `tier` is the LOWEST tier expected to catch it — a hypothesis to test, not a fact.
+# phase 1 = in scope now. Refs are blueprint §12 keys.
+D1: {name: Test-set leakage into preprocessing, domain: both, refs: [REF-1], tier: T0, phase: 1}
+D2: {name: Duplicate/near-duplicate molecules across train and test, domain: chem, refs: [REF-1, REF-15], tier: T1, phase: 1}
+D3: {name: Split protocol unstated, or random where generalisation to novel scaffolds is claimed, domain: chem, refs: [REF-14, REF-15, REF-18], tier: T0+T1, phase: 1}
+D4: {name: Multiple-comparison correction omitted before reporting significance, domain: both, refs: [REF-3], tier: T0, phase: 1}
+D5: {name: Conclusion overclaims relative to the computed numbers, domain: both, refs: [], tier: T2, phase: 1}
+D6: {name: "Double dipping: cluster then test DE on same data", domain: scrna, refs: [REF-10, REF-11, REF-12], tier: T0, phase: 2}
+D7: {name: Naive cell-level sample splitting presented as a fix for D6, domain: scrna, refs: [REF-10], tier: T1, phase: 2}
+D8: {name: Batch label perfectly confounded with condition, domain: scrna, refs: [REF-1], tier: T1, phase: 2}
+D9: {name: Normalisation applied after train/test partition inconsistently, domain: both, refs: [REF-1], tier: T0, phase: 2}
+D10: {name: Metric chosen that masks class imbalance, domain: both, refs: [REF-1], tier: T1, phase: 2}

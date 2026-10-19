@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 27,\n      \"claim\": \"The analysis claims generalisation to novel scaffolds but uses a random split instead of a scaffold split.\",\n      \"evidence\": \"DATASET = 'bbbp'\\nSPLIT = 'random'\\nCLAIM = 'generalisation to novel scaffolds'\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"notes\": \"Checked whether the evaluation split matches the stated claim of generalisation to novel scaffolds. The script sets SPLIT='random' while claiming generalisation to novel scaffolds, creating a mismatch between the evaluation protocol and the stated claim (D3).\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2784,
+  "output_tokens": 164,
+  "thinking_tokens": 0,
+  "seconds": 1.9386954307556152,
+  "retries": 0
+}

@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 80,\n      \"claim\": \"Multiple testing is performed without applying the implemented Holm correction.\",\n      \"evidence\": \"Line 80 sets `p_adj = raw` directly, bypassing the `holm_adjust` function defined on line 39.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the code and automated test flags; the Holm adjustment function is defined in the script but never actually called, causing uncorrected p-values to be used in the final comparison.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3046,
+  "output_tokens": 149,
+  "thinking_tokens": 0,
+  "seconds": 1.5653975009918213,
+  "retries": 0
+}

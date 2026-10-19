@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 80,\n      \"claim\": \"Multiple hypothesis testing is performed without applying the implemented Holm correction.\",\n      \"evidence\": \"Line 80 sets `p_adj = raw`, bypassing the `holm_adjust` function defined at lines 39-48.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked preprocessing leakage, splitting protocol, multiple comparison implementation, and conclusion alignment with computed results. The automated check for multiple-comparison correction is confirmed: the implemented `holm_adjust` function is never called, leaving `p_adj` equal to `p_raw`.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3047,
+  "output_tokens": 170,
+  "thinking_tokens": 0,
+  "seconds": 2.058722496032715,
+  "retries": 0
+}

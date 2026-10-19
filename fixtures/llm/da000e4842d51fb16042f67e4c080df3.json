@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 70,\n      \"claim\": \"Multiple testing correction is not actually applied despite the conclusion stating it was.\",\n      \"evidence\": \"Line 70 assigns `p_adj = p_raw` without calling `false_discovery_control` or any other correction function imported on line 17.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"I checked whether preprocessing leakage occurred, whether multiple testing correction was properly applied, and whether the conclusions matched the numbers.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2604,
+  "output_tokens": 145,
+  "thinking_tokens": 0,
+  "seconds": 1.2391586303710938,
+  "retries": 0
+}

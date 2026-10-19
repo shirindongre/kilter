@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D2\",\n      \"line\": 75,\n      \"claim\": \"Test set contains exact duplicate molecules present in the training set due to contamination in line 75.\",\n      \"evidence\": \"tr_idx = np.concatenate([tr_idx, te_idx[:max(1, len(te_idx) // 10)]])\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 75,\n      \"claim\": \"The analysis claims generalisation to novel scaffolds, but explicitly leaks test molecules and scaffolds into the training set.\",\n      \"evidence\": \"tr_idx = np.concatenate([tr_idx, te_idx[:max(1, len(te_idx) // 10)]])\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the code and automated test flags. Line 75 explicitly adds a portion of the test indices into the training set, violating both strict scaffold splitting and preventing exact duplicate contamination.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3045,
+  "output_tokens": 263,
+  "thinking_tokens": 0,
+  "seconds": 2.024620771408081,
+  "retries": 0
+}

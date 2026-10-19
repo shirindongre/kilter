@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 27,\n      \"claim\": \"The analysis claims to show generalisation to novel scaffolds, but uses a random split which does not hold scaffolds out.\",\n      \"evidence\": \"SPL = 'random' is defined on line 27, while line 28 sets CLAIM = 'generalisation to novel scaffolds'.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the split protocol against the module-level claim and confirmed that a random split was used despite the claim of evaluating generalisation to novel scaffolds.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2960,
+  "output_tokens": 154,
+  "thinking_tokens": 0,
+  "seconds": 2.074500560760498,
+  "retries": 0
+}

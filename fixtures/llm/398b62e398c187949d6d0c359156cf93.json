@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 51,\n      \"claim\": \"Preprocessing pipeline is fitted on the full dataset rather than the training set alone, leaking test data into feature selection.\",\n      \"evidence\": \"Line 51 calls `prep.fit(X, y)` on the entire matrix `X` and targets `y`, before transforming `X[train_idx]` and `X[test_idx]` separately in lines 52-53.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Verified feature selection leakage in lines 50-53 where VarianceThreshold and SelectKBest are fit on all rows X instead of X[train_idx]. Correctly noted multiple comparison correction and split protocols elsewhere.\"\n}",
+  "model_requested": "gemini-3.6-flash",
+  "model_reported": "gemini-3.6-flash",
+  "input_tokens": 2859,
+  "output_tokens": 192,
+  "thinking_tokens": 0,
+  "seconds": 5.449472188949585,
+  "retries": 0
+}

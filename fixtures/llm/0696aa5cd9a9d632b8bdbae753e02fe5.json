@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 80,\n      \"claim\": \"Multiple testing correction is omitted because raw p-values are assigned directly to adjusted p-values.\",\n      \"evidence\": \"p_adj = raw on line 80, whereas the holm_adjust function defined on lines 39-48 is never called.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"The analysis code defines a Holm adjustment function (holm_adjust) but fails to invoke it before computing the number of significant alternatives, leaving p_adj equal to raw p-values.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2774,
+  "output_tokens": 160,
+  "thinking_tokens": 0,
+  "seconds": 1.2748539447784424,
+  "retries": 0
+}

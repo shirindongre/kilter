@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 51,\n      \"claim\": \"Data leakage occurs because the preprocessing pipeline (VarianceThreshold and SelectKBest) is fitted on the entire dataset (X, y) before splitting into train and test subsets.\",\n      \"evidence\": \"prep.fit(X, y) is called on line 51 using all rows, whereas X[train_idx] and X[test_idx] are transformed on lines 52 and 53.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"The automated checks correctly identified a data leakage issue where the feature selection and variance thresholding are fit on the full dataset rather than restricted strictly to the training split.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2832,
+  "output_tokens": 184,
+  "thinking_tokens": 0,
+  "seconds": 1.7054708003997803,
+  "retries": 0
+}

@@ -1,0 +1,36 @@
+# AD-6: record the limits you actually SEE, with the date. Do not copy limits from blogs (REF-23).
+# Keys come from env vars / .env, never from this file.
+# 2026-10-18: only Google AI Studio is available (Cerebras is paid, Groq signup was down). See AIMS D-012.
+pinned_for_reported_results:
+  provider: google_ai_studio
+  model: gemini-3.5-flash-lite   # explicit name; reports itself honestly (D-012). Re-pinned 2026-10-18 from gemini-3.6-flash (D-017)
+  date_pinned: 2026-10-18
+  previous_pin: gemini-3.6-flash   # free tier is 20 requests/day: cannot carry the eval (D-017)
+
+providers:
+  google_ai_studio:
+    env_key: GOOGLE_API_KEY
+    role: sole provider for Phase 1
+    tier: free
+    limits:
+      gemini-3.6-flash:
+        rpm: 5               # OBSERVED from the 429 error text (quotaId ...PerMinutePerProject), 2026-10-18
+        rpd: 20              # OBSERVED 2026-10-18 from the 429 text: free_tier_requests, limit 20 (retry in 4h25m)
+        tpm: null
+      gemini-3.5-flash-lite:
+        rpm: null            # >= 14 calls in 9.8 s without a 429 on 2026-10-18; true cap not found
+        rpd: null            # unknown; will be recorded from the first 429 if one occurs
+        tpm: null
+      gemini-3.1-flash-lite:
+        rpm: null            # >= 14 calls in 17.5 s without a 429 on 2026-10-18; true cap not found
+        rpd: null
+        tpm: null
+    models_retired_for_new_users: [gemini-2.5-flash, gemini-2.5-flash-lite]   # 404 on 2026-10-18
+    date_verified: 2026-10-18
+  groq:
+    env_key: GROQ_API_KEY
+    status: unavailable        # signup was down on 2026-10-18; optional, not required for Phase 1
+    limits: {rpm: null, rpd: null, tpm: null}
+    date_verified: null
+  cerebras:
+    status: dropped            # requires payment; owner declined

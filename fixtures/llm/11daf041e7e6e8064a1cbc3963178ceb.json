@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 65,\n      \"claim\": \"Test data leaks into the training set because a fraction of the test indices are concatenated onto the training indices.\",\n      \"evidence\": \"train_idx = np.concatenate([train_idx, test_idx[:max(1, len(test_idx) // 10)]])\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the code for data leakage, split protocol matching, and statistical handling. Found a deliberate data leak on line 65 where part of the test fold is added to the training set.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2650,
+  "output_tokens": 165,
+  "thinking_tokens": 0,
+  "seconds": 1.2771823406219482,
+  "retries": 0
+}

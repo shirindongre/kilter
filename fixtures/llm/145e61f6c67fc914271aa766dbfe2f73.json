@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 80,\n      \"claim\": \"The code implements a Holm correction function (lines 39-48) but never actually applies it to the p-values before comparison and reporting.\",\n      \"evidence\": \"Line 80 sets `p_adj = raw`, bypassing `holm_adjust(raw)`, so uncorrected raw p-values are used for thresholding and reporting.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked preprocessing, splitting, and statistical correction implementation. The automated check correctly noted that multiple comparisons are uncorrected because the custom Holm adjustment function was defined but bypassed in line 80.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3047,
+  "output_tokens": 176,
+  "thinking_tokens": 0,
+  "seconds": 2.1018521785736084,
+  "retries": 0
+}

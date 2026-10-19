@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 61,\n      \"claim\": \"Preprocessing transformers (VarianceThreshold, StandardScaler, SelectKBest) are fitted on the entire dataset matrix before train/test splitting.\",\n      \"evidence\": \"prep.fit(X, y) is executed globally in auroc_for(...) prior to splitting the transformed features into training and test sets using tr_idx and te_idx.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"The feature selection and scaling pipeline is incorrectly fit on the entire dataset (including test set rows) prior to evaluating performance on the train/test splits, causing data leakage.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2769,
+  "output_tokens": 170,
+  "thinking_tokens": 0,
+  "seconds": 1.42954683303833,
+  "retries": 0
+}

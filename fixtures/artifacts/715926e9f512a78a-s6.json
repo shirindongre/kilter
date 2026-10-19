@@ -1,0 +1,41 @@
+{
+  "script": "bace-b0-clean.py",
+  "source_sha256": "715926e9f512a78a15724ff0904a4251d0193c7334f05a0492cd09c86ec3e296",
+  "n_seeds": 6,
+  "run_seconds": 49.9,
+  "result": {
+    "dataset": "bace",
+    "split": "scaffold",
+    "claim": "generalisation to novel scaffolds",
+    "n_seeds": 6,
+    "auroc_mean": 0.8671407080682391,
+    "auroc_sd": 0.022672054914821976,
+    "comparisons": [
+      {
+        "variant": "ecfp2",
+        "delta_auroc": -0.005527383908283556,
+        "p_raw": 0.4375,
+        "p_adj": 0.5833333333333333
+      },
+      {
+        "variant": "ecfp6",
+        "delta_auroc": -0.002410618071934323,
+        "p_raw": 0.4375,
+        "p_adj": 0.5833333333333333
+      },
+      {
+        "variant": "ecfp8",
+        "delta_auroc": -0.004276826367639153,
+        "p_raw": 0.6875,
+        "p_adj": 0.6875
+      },
+      {
+        "variant": "ecfp4_count",
+        "delta_auroc": 0.006846971193202767,
+        "p_raw": 0.09375,
+        "p_adj": 0.375
+      }
+    ],
+    "conclusion": "ECFP4 reaches AUROC 0.867 on a scaffold split (6 seeds). 0 of 4 encoding variants differ from ECFP4 after multiple-comparison correction."
+  }
+}

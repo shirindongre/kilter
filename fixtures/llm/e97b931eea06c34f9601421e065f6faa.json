@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 61,\n      \"claim\": \"The preprocessing pipeline is fit on the entire dataset rather than exclusively on the training split.\",\n      \"evidence\": \"prep.fit(X, y) is called on line 61 using the full dataset matrices before splitting the features into training and test sets on line 62 (X_tr, X_te = (prep.transform(X[tr_idx]), prep.transform(X[te_idx]))).\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"notes\": \"Checked data leakage in preprocessing steps. The StandardScaler, VarianceThreshold, and SelectKBest are fitted on the entire dataset (including test samples) prior to splitting, which leaks test information into the feature selection and scaling pipeline.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2742,
+  "output_tokens": 201,
+  "thinking_tokens": 0,
+  "seconds": 1.7129926681518555,
+  "retries": 0
+}

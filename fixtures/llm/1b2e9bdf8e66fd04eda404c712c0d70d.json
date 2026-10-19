@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 65,\n      \"claim\": \"Test data leaks into the training set because a fraction of the test indices are concatenated onto the training indices.\",\n      \"evidence\": \"train_idx = np.concatenate([train_idx, test_idx[:max(1, len(test_idx) // 10)]])\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked data leakage and test-set contamination. Line 65 explicitly leaks a portion of the test set into the training set for every seed.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2644,
+  "output_tokens": 156,
+  "thinking_tokens": 0,
+  "seconds": 1.7045137882232666,
+  "retries": 0
+}

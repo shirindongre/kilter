@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 70,\n      \"claim\": \"Multiple testing correction is omitted because raw p-values are assigned directly to adjusted p-values without calling a correction function like false_discovery_control.\",\n      \"evidence\": \"p_adj = p_raw on line 70, whereas import of false_discovery_control is present on line 1 but never used.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked code implementation of the statistical pipeline and noticed that although scipy.stats.false_discovery_control is imported, line 70 bypasses any correction by simply setting p_adj = p_raw.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2601,
+  "output_tokens": 176,
+  "thinking_tokens": 0,
+  "seconds": 2.2538459300994873,
+  "retries": 0
+}

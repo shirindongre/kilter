@@ -1,0 +1,35 @@
+{
+  "script": "bbbp-b0-D1.py",
+  "source_sha256": "ee94cd2fa27b5e7547094fd705dd74bd4332b4cf5dd97552c81630eb1a516019",
+  "n_seeds": 6,
+  "run_seconds": 40.0,
+  "result": {
+    "dataset": "bbbp",
+    "split": "scaffold",
+    "claim": "generalisation to novel scaffolds",
+    "n_seeds": 6,
+    "auroc_mean": 0.8958804079051563,
+    "auroc_sd": 0.01970084036093224,
+    "comparisons": [
+      {
+        "variant": "radius3",
+        "delta_auroc": 0.0011942786909689973,
+        "p_raw": 0.7728880618086872,
+        "p_adj": 1.0
+      },
+      {
+        "variant": "radius1",
+        "delta_auroc": -0.001171404680076038,
+        "p_raw": 0.7294546269795382,
+        "p_adj": 1.0
+      },
+      {
+        "variant": "wide",
+        "delta_auroc": -0.006668249814046123,
+        "p_raw": 0.1013808161620254,
+        "p_adj": 0.3041424484860762
+      }
+    ],
+    "conclusion": "ECFP4 counts + XGBoost reach AUROC 0.896 on a scaffold split (6 repeats). 0 of 3 alternatives differ from ECFP4 after Holm correction."
+  }
+}

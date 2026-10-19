@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 75,\n      \"claim\": \"Data leakage occurs because a fraction of test indices are appended to the training set indices.\",\n      \"evidence\": \"tr_idx = np.concatenate([tr_idx, te_idx[:max(1, len(te_idx) // 10)]])\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D2\",\n      \"line\": 75,\n      \"claim\": \"Identical molecules leak into both train and test sets due to the modification of training indices.\",\n      \"evidence\": \"Automated checks confirm that 58 of 510 test molecules are identical to training molecules.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 74,\n      \"claim\": \"The split protocol fails to maintain strict scaffold separation, conflicting with the claimed generalisation to novel scaffolds.\",\n      \"evidence\": \"Automated checks confirm that 38 of 261 test scaffolds also occur in train.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the code for pipeline logic, data leakage, and alignment between the automated test results and the code execution.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3080,
+  "output_tokens": 318,
+  "thinking_tokens": 0,
+  "seconds": 2.0678601264953613,
+  "retries": 0
+}

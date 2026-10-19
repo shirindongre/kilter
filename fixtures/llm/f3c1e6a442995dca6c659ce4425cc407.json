@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 70,\n      \"claim\": \"Multiple testing correction is omitted because p_adj is directly assigned p_raw without applying a correction method such as Benjamini-Hochberg.\",\n      \"evidence\": \"Line 70: 'p_adj = p_raw'\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked multiple comparison correction implementation in the analysis script. Automated checks correctly identified the missing correction.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2763,
+  "output_tokens": 134,
+  "thinking_tokens": 0,
+  "seconds": 1.6808676719665527,
+  "retries": 0
+}

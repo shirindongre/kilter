@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 27,\n      \"claim\": \"The analysis claims generalisation to novel scaffolds, but uses a random train/test split.\",\n      \"evidence\": \"SPLIT = 'random' at line 27; CLAIM = 'generalisation to novel scaffolds' at line 28\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D2\",\n      \"line\": 52,\n      \"claim\": \"Identical molecules leak between the training and test sets due to random splitting.\",\n      \"evidence\": \"Automated check found 27 of 408 test molecules are identical to a training molecule.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 52,\n      \"claim\": \"The test set shares 46% of its scaffolds with the training set despite the claim of testing generalisation to novel scaffolds.\",\n      \"evidence\": \"Automated check found 125 of 272 test scaffolds also occur in train.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"The script uses a random split instead of a scaffold split while claiming generalisation to novel scaffolds, leading to data leakage of identical molecules and overlapping scaffolds between train and test splits.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3095,
+  "output_tokens": 329,
+  "thinking_tokens": 0,
+  "seconds": 2.143308639526367,
+  "retries": 0
+}

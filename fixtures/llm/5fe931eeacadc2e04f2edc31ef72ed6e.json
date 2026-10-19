@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 27,\n      \"claim\": \"The analysis claims generalisation to novel scaffolds, but uses a random split which does not hold out scaffolds.\",\n      \"evidence\": \"SPLIT = 'random' at line 27, while CLAIM = 'generalisation to novel scaffolds' at line 28; automated scaffold overlap check found 51% of test scaffolds occur in train.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D2\",\n      \"line\": null,\n      \"claim\": \"Molecule duplication between train and test sets occurs due to the random split protocol.\",\n      \"evidence\": \"Automated duplicate check found 12 of 303 test molecules (4.0%) share a largest fragment with a training molecule under the random split.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the consistency between the claim of novel scaffold generalisation and the split protocol used (random split), as well as data leakage via molecular overlap.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2942,
+  "output_tokens": 261,
+  "thinking_tokens": 0,
+  "seconds": 2.031064510345459,
+  "retries": 0
+}

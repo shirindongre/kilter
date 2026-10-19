@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 65,\n      \"claim\": \"Test data leaks into preprocessing or model fitting via training set augmentation.\",\n      \"evidence\": \"train_idx = np.concatenate([train_idx, test_idx[:max(1, len(test_idx) // 10)]])\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"I checked the code for data leakage, split protocols, multiple testing, and conclusion support. Line 65 injects a portion of the test set into the training set indices, causing test data leakage (D1).\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2667,
+  "output_tokens": 163,
+  "thinking_tokens": 0,
+  "seconds": 1.4398531913757324,
+  "retries": 0
+}

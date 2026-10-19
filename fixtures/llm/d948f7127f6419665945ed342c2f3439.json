@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 61,\n      \"claim\": \"Preprocessing pipeline transformer fits on the entire dataset instead of training data only, leading to data leakage.\",\n      \"evidence\": \"prep.fit(X, y) at line 61 is performed on the entire feature matrix X and target y before splitting into training and test sets.\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"notes\": \"Checked data preprocessing steps, cross-validation protocol, and statistical reporting. The feature selection and scaling steps are fitted on the entire dataset (all rows X, y) prior to splitting via training and test indices, which constitutes data leakage (D1).\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2773,
+  "output_tokens": 175,
+  "thinking_tokens": 0,
+  "seconds": 1.6993260383605957,
+  "retries": 0
+}

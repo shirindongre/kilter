@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"OTHER\",\n      \"line\": 80,\n      \"claim\": \"The Holm correction function is defined but never called, so unadjusted p-values are used instead of adjusted ones.\",\n      \"evidence\": \"Line 80 assigns `p_adj = raw` directly without calling `holm_audit(raw)`.\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"notes\": \"The analysis correctly implements the scaffold split, preprocessing on training data only, and paired t-tests, but it fails to apply the implemented Holm correction function when assigning `p_adj`.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2773,
+  "output_tokens": 157,
+  "thinking_tokens": 0,
+  "seconds": 1.7054414749145508,
+  "retries": 0
+}

@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D3\",\n      \"line\": 27,\n      \"claim\": \"The analysis claims generalisation to novel scaffolds, but uses a random split instead of a scaffold split.\",\n      \"evidence\": \"SPLIT = 'random' is set on line 27 while CLAIM = 'generalisation to novel scaffolds' on line 28.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"defect_class\": \"D2\",\n      \"line\": 52,\n      \"claim\": \"Identical molecules leak between the training and test sets under the random split protocol.\",\n      \"evidence\": \"Automated checks confirm that 27 of 408 test molecules are exact duplicates of training molecules.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked data leakage, split protocol alignment with the stated claim, duplicate presence, and multiple-testing correction validity.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3095,
+  "output_tokens": 229,
+  "thinking_tokens": 0,
+  "seconds": 2.0012917518615723,
+  "retries": 0
+}

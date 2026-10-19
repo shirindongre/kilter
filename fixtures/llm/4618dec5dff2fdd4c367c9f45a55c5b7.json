@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D5\",\n      \"line\": 83,\n      \"claim\": \"The conclusion claims that ECFP4 is demonstrably better than every alternative encoding, but none of the adjusted p-values are significant and the mean differences are actually in favor of the alternatives.\",\n      \"evidence\": \"p_adj values are ~0.887 (> 0.05) and delta_auroc values are positive (0.0028 to 0.0042), meaning alternative encodings achieved higher mean AUROCs than ECFP4, so the claim is completely unsupported by the computed numbers.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Re-examined the executed results. The claim asserts ECFP4 superiority, but delta_auroc is positive for all challengers (meaning challengers scored higher than the reference ECFP4) and the p-values show no statistically significant difference.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3001,
+  "output_tokens": 231,
+  "thinking_tokens": 0,
+  "seconds": 1.537320852279663,
+  "retries": 0
+}

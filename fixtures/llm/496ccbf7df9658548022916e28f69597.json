@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D4\",\n      \"line\": 70,\n      \"claim\": \"Multiple hypothesis testing is performed without adjusting the p-values despite the code claiming otherwise.\",\n      \"evidence\": \"Line 70 sets `p_adj = p_raw` instead of applying `false_discovery_control(p_raw)` or another multi-test correction method.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked the code for proper multiple-comparison correction implementation and found that while scipy.stats.false_discovery_control is imported, it is bypassed on line 70, leaving raw p-values uncorrected.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 2764,
+  "output_tokens": 169,
+  "thinking_tokens": 0,
+  "seconds": 1.7096102237701416,
+  "retries": 0
+}

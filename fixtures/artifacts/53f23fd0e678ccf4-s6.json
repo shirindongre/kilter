@@ -1,0 +1,41 @@
+{
+  "script": "bace-b1-D5.py",
+  "source_sha256": "53f23fd0e678ccf45133efa98fc9dfd81b3def3bca8afc922cffa6ce4b1c9e5f",
+  "n_seeds": 6,
+  "run_seconds": 39.9,
+  "result": {
+    "dataset": "bace",
+    "split": "scaffold",
+    "claim": "generalisation to novel scaffolds",
+    "n_seeds": 6,
+    "auroc_mean": 0.8652091160523678,
+    "auroc_sd": 0.02664916949725451,
+    "comparisons": [
+      {
+        "variant": "ecfp2",
+        "delta_auroc": -0.004870332558906898,
+        "p_raw": 0.21875,
+        "p_adj": 0.4375
+      },
+      {
+        "variant": "ecfp6",
+        "delta_auroc": -0.001483578462312507,
+        "p_raw": 0.6875,
+        "p_adj": 0.6875
+      },
+      {
+        "variant": "ecfp8",
+        "delta_auroc": -0.0025788439477126834,
+        "p_raw": 0.6875,
+        "p_adj": 0.6875
+      },
+      {
+        "variant": "ecfp4_count",
+        "delta_auroc": 0.007276436418950483,
+        "p_raw": 0.15625,
+        "p_adj": 0.4375
+      }
+    ],
+    "conclusion": "The best scaffold-split run reaches AUROC 0.909, which is state-of-the-art for BACE-1 and ready to prioritise compounds in a live screening campaign."
+  }
+}

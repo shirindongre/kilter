@@ -1,0 +1,10 @@
+{
+  "text": "{\n  \"assessment\": \"issue\",\n  \"findings\": [\n    {\n      \"defect_class\": \"D1\",\n      \"line\": 61,\n      \"claim\": \"The feature selector, variance threshold, and standard scaler are fitted on the entire dataset before splitting into train and test sets.\",\n      \"evidence\": \"prep.fit(X, y) is called on line 61 using the full feature matrix X and label array y, prior to transforming the training and test partitions separately on line 62.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"notes\": \"Checked code for preprocessing leakage and found that the scikit-learn Pipeline is fitted on the entire dataset (X, y) rather than just the training portion, allowing test set information to influence feature selection, scaling, and variance thresholding.\"\n}",
+  "model_requested": "gemini-3.5-flash-lite",
+  "model_reported": "gemini-3.5-flash-lite",
+  "input_tokens": 3102,
+  "output_tokens": 186,
+  "thinking_tokens": 0,
+  "seconds": 1.940624713897705,
+  "retries": 0
+}
