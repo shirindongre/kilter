@@ -69,7 +69,7 @@ function integrity(f) {
       ? `All ${r.checked} counts on this page agree with the evaluation's own summary files.`
       : `${r.disagree.length} of ${r.checked} counts disagree with the evaluation's summary files (listed below).`),
   ];
-  if (!treeMatches) items.push(ok(false, `This checkout's verifier hashes to ${short(p.tree_code_sha256)}, not ${short(p.code_sha256[0])}. A live audit here would write a record with a different code hash, so these records are not reproducible from this checkout as it stands.`));
+  if (!treeMatches) items.push(ok(false, `This checkout's verifier hashes to ${short(p.tree_code_sha256)}, not ${short(p.code_sha256[0])}. The code hash covers raw bytes, so line endings alone can cause this (it did, in the evaluation's own tree: D-027). Compare the files before trusting or distrusting it.`));
   if (!pyMatches) items.push(ok(false, `The records were produced on Python ${p.python.join(", ")}; this server runs ${p.running_python}. Generated scripts can differ in bytes between minor versions, so scripts shown here come from results/variants.`));
   for (const t of f.problems) items.push(ok(false, t));
   return h("section", { class: "panel panel--top", style: "margin-top:8px", "aria-label": "What was read" },

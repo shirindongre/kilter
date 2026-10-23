@@ -204,7 +204,9 @@ def execute(job: Job, path: Path, sample: dict, arm: str, sensitivity: bool) -> 
         job.hint = "Audit with the deterministic arm, or start the server with --live and a GOOGLE_API_KEY."
     except Exception as e:  # noqa: BLE001 - surface any pipeline failure to the person, not a stack trace
         job.error, job.status = f"{type(e).__name__}: {str(e)[:400]}", "error"
-        if "load_dataset" in str(e) or "HF" in str(e) or "huggingface" in str(e).lower():
+        if "GOOGLE_API_KEY" in str(e):
+            job.hint = "Live mode needs GOOGLE_API_KEY in .env (see .env.example). Or audit with the deterministic arm, which needs no key."
+        elif "load_dataset" in str(e) or "HF" in str(e) or "huggingface" in str(e).lower():
             job.hint = "The datasets may not be cached. Run: python -c \"from kilter.data import load_dataset as l; l('bace'); l('bbbp')\""
 
 

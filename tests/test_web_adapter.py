@@ -97,6 +97,7 @@ def test_sensitivity_is_parsed_from_the_fixed_format_evidence():
     (s,) = v["sensitivity"]
     assert s["seeds"] == 3 and s["as_written"]["label"] == "scaffold" and s["alternative"]["label"] == "scaffold_det"
     assert abs(s["delta"] - 0.111) < 1e-9 and "11.1 points" in s["headline"] and v["verdict"] == "in_kilter"
+    assert by_id(v)["T1.split-sensitivity"] == "reported" and by_id(v)["T1.duplicates"] == "clear"
     unstated = F("D3", "T1", Kind.SENSITIVITY, None, "T1.split-sensitivity",
                  msg="depends on the split protocol (stated: not stated).", ev="random: 0.893; scaffold_det: 0.782 (3 seeds each)")
     (u,) = build([unstated], [*T0_CHECKS, *T1_CHECKS, "T1.split-sensitivity"], arm="A4")["sensitivity"]

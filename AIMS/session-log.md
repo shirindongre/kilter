@@ -45,3 +45,12 @@ Progress 6 (DONE): run_eval rerun (1 hash), replay pytest 53 pass, context.md/tr
 - Cross-checked every number in README and docs/TALK.md against summary.json, holdout2_summary.json and the records: all agree (no mismatch). Fleet reconciles 28 counts with the summaries.
 - Phase 1 close-out: .gitignore un-ignores small evidence files, .gitattributes for variants, docs/RECORDING.md (90 s script, rehearsal), Q-003/Q-005 answered, Q-001/Q-006 left to the owner, D-025, L-012.
 - Not done: the recording and the timed rehearsal (owner); nothing is committed; `python web/server.py --live` and the split-sensitivity checkbox were not exercised.
+
+## 2026-10-23 - Exercised --live and split sensitivity; taxonomy fix
+- `web/server.py --live` (mode record): a recorded sample (demo-clean-bace, A3) is served from the recording with no API call (1 call, 1 replayed). An unrecorded script with no GOOGLE_API_KEY fails with a clear error after about 33 s (it runs the artifact step first) and now carries a hint. NOT exercised: a real live API call, because this machine has no .env and no key.
+- Split sensitivity (API and the UI checkbox, replay mode): demo-clean-bace IN KILTER, scaffold 0.868 / random 0.895 / scaffold_det 0.785 (3 seeds, 49 s); demo-leakage-bbbp OUT OF KILTER held at T0, 0.885 / 0.914 / 0.847 (61 s). Verdict unchanged by the option. README quotes the 10-seed reference (0.875 / 0.893 / 0.782), consistent with 3-seed noise.
+- Fixed: taxonomy.yaml D3 quoting and catalog.CLASS_NAMES workaround removed; register word "Reported" for sensitivity (D-026).
+
+## 2026-10-23 - Code-hash mismatch resolved (D-027)
+- Owner ran code_hash() on the evaluation machine: fdd74ae7..., Python 3.11.9, git clean. Per-file comparison with this checkout: 13 identical, 21 identical after CRLF -> LF, 0 different; hash rebuilt with the evaluation machine's endings equals fdd74ae7 exactly. Line endings only.
+- Fleet integrity message reworded to say the hash covers raw bytes. Open decision for the owner: make code_hash() line-ending independent and rerun the evaluation (changes the hash).

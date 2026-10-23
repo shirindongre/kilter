@@ -30,7 +30,7 @@ export const tierChip = (t) => h("span", { class: `tier tier--${t}` }, TIER[t] |
 export const VERDICT_CLASS = { in_kilter: "v-in", out_of_kilter: "v-out", escalate: "v-esc" };
 export const RESULT_WORD = {
   clear: "Clear", fired: "Fired", not_applicable: "Not applicable", could_not_run: "Could not run",
-  no_objection: "No objection", query: "Query",
+  no_objection: "No objection", query: "Query", reported: "Reported",
 };
 export const OUTCOME_WORD = {
   caught: "Caught", missed: "Missed", false_alarm: "False alarm", clean_ok: "Clean, as planted",

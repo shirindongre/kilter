@@ -69,4 +69,4 @@ If the page lists a code-hash or Python-version difference, that is real: see D-
 
 ## Not done
 
-`--live` mode and the split-sensitivity option have not been exercised on real runs. No Linux checkout has been tried (the demo artifacts are keyed to CRLF bytes).
+A real live API call has not been made (it needs GOOGLE_API_KEY); `--live` was checked only for recorded scripts and for failing cleanly without a key. No Linux checkout has been tried (the demo artifacts are keyed to CRLF bytes).

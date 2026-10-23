@@ -1,6 +1,6 @@
 # Current context (rewrite every session)
 
-**Last updated:** 2026-10-23 (fleet view built, results inspected, Phase 1 close-out; nothing committed)
+**Last updated:** 2026-10-23 (fleet view committed 4809a97; code-hash mismatch resolved, D-027; --live and split sensitivity exercised, D-026)
 **Phase:** Phase 1 complete except two items only the owner can do (90 s recording, timed rehearsal). Phase 2: scope-prompt experiment (D-022, D-023) and local web UI with fleet view (D-024, D-025) done.
 
 ## Phase 1 exit gate (blueprint 5.6)
@@ -17,17 +17,17 @@
 A3 40/40 (91-100%), A4 32/40 (64-91%), A1 3/40 (2-20%) at 1.9x A3's tokens; FP 0/8 each. Holdout A3 3/8. Holdout 2: frozen prompt 4/8, scope prompt 7/8, paired p=0.25. Critic confidence saturates (0.95-1.00); ESCALATE never fired. All of these were re-checked against results/ on 2026-10-23 and agree with README and docs/TALK.md.
 
 ## Open problems (read these first)
-- Code hash: the records say fdd74ae7...; this checkout's src/kilter hashes to 3d833fee... and neither LF nor CRLF normalisation explains it (D-025). Find the byte difference or rerun scripts/run_eval.py before claiming the records reproduce from this tree.
+- Code hash: RESOLVED (D-027). Records say fdd74ae7...; this checkout hashes to 3d833fee... only because 21 files are CRLF here and LF on the evaluation machine; every other byte is identical (verified per file, and the hash rebuilt with their endings matches). The hash is line-ending sensitive (L-013). Owner decision: normalise it in code_hash() and rerun the evaluation, or leave it and state the caveat.
 - Python: the evaluation ran on 3.11.9, the venv here is 3.12.6; generated variants differ in 16 files (L-012). web/registry.py uses results/variants to stay byte-exact.
 - Verified on this machine 2026-10-23 (replay mode, datasets cached): `web/build_fixtures.py` writes 6 runs + fleet.json; demo D1 is OUT OF KILTER held at T0, demo D5 is held at T2 as a query, demo A4 on D5 misses; the demo artifacts matched; `web/server.py` serves all screens; a replay A3 audit of bace-b0-H5 reproduces the stored verdict and tokens.
-- Not verified: `web/server.py --live`, the split-sensitivity checkbox on real runs, a Linux checkout (the demo artifacts are keyed to CRLF bytes, D-024).
-- Known repo bug: taxonomy.yaml D3 name truncated by an unquoted comma (web/catalog.py works around it).
+- Verified 2026-10-23: `--live` serves recorded samples without an API call and fails cleanly with no key; the split-sensitivity option works (API and UI) and never changes a verdict.
+- Not verified: a real live API call (no key on this machine), a Linux checkout (the demo artifacts are keyed to CRLF bytes, D-024).
 
 ## What exists
 src/kilter (core, graph, defects, eval), references/, fixtures/ (llm + artifacts), demo/, results/ (local; small evidence files now un-ignored, D-025), README.md, docs/{blueprint.md,TALK.md,RECORDING.md,frontend/}, tests (67 pass, 1 skipped), tracker, web/ (UI: Audit, Samples, Fleet, History).
 
-## Uncommitted (review `git status`, then commit)
-Modified: .gitignore, AIMS/*, CLAUDE.md, docs/TALK.md, pyproject.toml, tracker/data.js. New: .gitattributes, docs/RECORDING.md, tests/test_web_adapter.py, web/, results/{figures,variants,summary files}. Not for git: results.zip, web/work, web/runs, the demo video.
+## Git
+Committed as 4809a97. Later edits (D-026) are separate. Never commit: results.zip, web/work, web/runs, the demo video.
 
 ## Open
 - Owner: recording, rehearsal, Q-001 (format), Q-006 (flash-lite rpd).

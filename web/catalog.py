@@ -6,6 +6,8 @@ and wording only: nothing here decides a verdict, picks a tier or computes a num
 """
 from __future__ import annotations
 
+from kilter import report
+
 TIER_LABEL = {"t0": "T0 static", "t1": "T1 runtime", "t2": "T2 critic"}
 
 # id -> (tier, sound, name, assertion). Order is display order within a tier.
@@ -85,20 +87,9 @@ REMEDY = {
     ("OTHER", False): "Read the critic's evidence and decide whether it applies to your analysis.",
 }
 
-# Display names. taxonomy.yaml has an unquoted comma in D3's name, so YAML truncates it to "Split protocol unstated"
-# (a random-split defect would be mislabelled). The UI keeps its own copy of the five Phase 1 names instead.
-CLASS_NAMES = {
-    "D1": "Test-set leakage into preprocessing",
-    "D2": "Duplicate or near-duplicate molecules across train and test",
-    "D3": "Split protocol unstated, or random where novel scaffolds are claimed",
-    "D4": "Multiple-comparison correction omitted",
-    "D5": "Conclusion overclaims relative to the computed numbers",
-    "OTHER": "Other statistical-validity issue",
-}
-
-
+# Display names come from the verifier's own taxonomy (defects/taxonomy.yaml), so the UI and the terminal report agree.
 def class_name(code: str) -> str:
-    return CLASS_NAMES.get(code, CLASS_NAMES["OTHER"])
+    return report.class_name(code)
 
 
 PASS_BOUNDS = [

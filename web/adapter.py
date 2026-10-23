@@ -160,8 +160,12 @@ def _checks_view(result: AuditResult) -> list[dict]:
                 res = "could_not_run"
             else:
                 res = "no_objection"
+        elif any(f.kind in DEFECTISH for f in mine):
+            res = "fired"
+        elif any(f.kind is Kind.SENSITIVITY for f in mine):
+            res = "reported"   # informational (AD-9): it measured something the reader should see, so "Clear" would mislead
         else:
-            res = "fired" if any(f.kind in DEFECTISH for f in mine) else "clear"
+            res = "clear"
         rows.append({"no": i, "id": cid, "tier": info["tier"], "sound": info["sound"], "name": info["name"],
                      "assertion": info["assertion"], "result": res})
     return rows

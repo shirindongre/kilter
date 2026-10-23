@@ -186,6 +186,7 @@
 .rs--could_not_run { color: var(--ember); }
 .rs--no_objection { color: var(--chalk-3); }
 .rs--query { color: var(--chalk-2); }
+.rs--reported { color: var(--chalk-3); }
 .k-stamp { animation: k-fade 110ms var(--enter) both; animation-delay: calc(var(--i, 0) * 40ms + 300ms); }
 
 /* --- escalate: blockers and what a person should look at -------------------------------------- */
