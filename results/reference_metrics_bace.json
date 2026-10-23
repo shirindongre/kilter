@@ -1,0 +1,111 @@
+{
+  "reference": "references/bace_clean.py",
+  "date": "2026-10-17",
+  "n_seeds": 10,
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "scikit-learn": "1.9.1",
+    "rdkit": "2026.3.5",
+    "scikit-fingerprints": "2.1.0"
+  },
+  "splits": {
+    "random": {
+      "auroc_mean": 0.8926010691665889,
+      "auroc_sd": 0.01182849832494038,
+      "comparisons": [
+        {
+          "variant": "ecfp2",
+          "delta_auroc": -0.003400380748737164,
+          "p_raw": 0.193359375,
+          "p_adj": 0.2578125
+        },
+        {
+          "variant": "ecfp6",
+          "delta_auroc": -0.005408916039274736,
+          "p_raw": 0.130859375,
+          "p_adj": 0.2578125
+        },
+        {
+          "variant": "ecfp8",
+          "delta_auroc": -0.0016282630411857957,
+          "p_raw": 0.6953125,
+          "p_adj": 0.6953125
+        },
+        {
+          "variant": "ecfp4_count",
+          "delta_auroc": 0.006461490294101813,
+          "p_raw": 0.013671875,
+          "p_adj": 0.0546875
+        }
+      ],
+      "conclusion": "ECFP4 reaches AUROC 0.893 on a random split (10 seeds). 0 of 4 encoding variants differ from ECFP4 after multiple-comparison correction."
+    },
+    "scaffold": {
+      "auroc_mean": 0.8751779575116373,
+      "auroc_sd": 0.021749515075450084,
+      "comparisons": [
+        {
+          "variant": "ecfp2",
+          "delta_auroc": -0.007359320574586881,
+          "p_raw": 0.083984375,
+          "p_adj": 0.3098958333333333
+        },
+        {
+          "variant": "ecfp6",
+          "delta_auroc": -0.0026366178737090573,
+          "p_raw": 0.232421875,
+          "p_adj": 0.3098958333333333
+        },
+        {
+          "variant": "ecfp8",
+          "delta_auroc": -0.004260728759360233,
+          "p_raw": 0.322265625,
+          "p_adj": 0.322265625
+        },
+        {
+          "variant": "ecfp4_count",
+          "delta_auroc": 0.004114474567814663,
+          "p_raw": 0.16015625,
+          "p_adj": 0.3098958333333333
+        }
+      ],
+      "conclusion": "ECFP4 reaches AUROC 0.875 on a scaffold split (10 seeds). 0 of 4 encoding variants differ from ECFP4 after multiple-comparison correction."
+    },
+    "scaffold_det": {
+      "auroc_mean": 0.7823058339298495,
+      "auroc_sd": 0.0028226358288788653,
+      "comparisons": [
+        {
+          "variant": "ecfp2",
+          "delta_auroc": 0.0019260021474589717,
+          "p_raw": 0.16015625,
+          "p_adj": 0.16015625
+        },
+        {
+          "variant": "ecfp6",
+          "delta_auroc": -0.019470293486041457,
+          "p_raw": 0.001953125,
+          "p_adj": 0.00390625
+        },
+        {
+          "variant": "ecfp8",
+          "delta_auroc": -0.017090193271295573,
+          "p_raw": 0.001953125,
+          "p_adj": 0.00390625
+        },
+        {
+          "variant": "ecfp4_count",
+          "delta_auroc": 0.003670812455261352,
+          "p_raw": 0.037109375,
+          "p_adj": 0.049479166666666664
+        }
+      ],
+      "conclusion": "ECFP4 reaches AUROC 0.782 on a scaffold_det split (10 seeds). 3 of 4 encoding variants differ from ECFP4 after multiple-comparison correction."
+    }
+  },
+  "random_minus": {
+    "scaffold": 0.017423111654951584,
+    "scaffold_det": 0.11029523523673934
+  }
+}

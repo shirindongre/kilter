@@ -17,6 +17,7 @@ It answers **IN KILTER / OUT OF KILTER / ESCALATE** and shows which tier of chec
 
 - **Gates are gates.** Do not start the next phase/day until the current gate passes (§5.3, §5.6). Day 1 gate: T0+T1 catch >= 80% of injected D1–D4 with 0 false positives on the 8 clean variants, with **no LLM called**.
 - **Scope is Phase 1 only** (§5.1–5.2): molecular property prediction, BACE + BBBP, ECFP + RF/XGBoost, defects D1–D5, 40 variants, arms A0/A1/A3/A4. No scRNA-seq, no generation mode, no web UI, no Docker/CI. If tempted, re-read AD-8 and §10.
+  - Revision (D-024, 2026-10-23): a local web UI exists as Phase 2 in `web/`, outside `src/kilter` (code hash unaffected). Phase 1 scope and gates are unchanged.
 - **Audit mode only** (AD-8). Kilter audits an existing script; it does not write analyses.
 - **Tiers:** T0 static AST (sound) -> T1 runtime assertions (sound) -> T2 LLM critic (unsound, last). (AD-1)
 - **T2 critic input is restricted** to executed artifact + data card + T0/T1 output. Never the analyst's prompt/reasoning. (AD-2)

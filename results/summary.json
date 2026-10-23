@@ -1,0 +1,939 @@
+{
+  "main": {
+    "set": "main",
+    "n_variants": 48,
+    "code_hashes": [
+      "fdd74ae73898253dfbda6b69af1aa0c6bf936c63344e3251f3557a854b0b94ea"
+    ],
+    "models": [
+      "gemini-3.5-flash-lite"
+    ],
+    "prompt_sha256": [
+      "484e6bfe01faeb53587052d1baf95b5dedad9e599c1a7569d0c776b37d339058"
+    ],
+    "arms": {
+      "A0": {
+        "per_class": {
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D1": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D2": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D3": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D4": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D5": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          }
+        },
+        "overall_detection": {
+          "k": 0,
+          "n": 40,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.08809730287880237
+        },
+        "escalations": {
+          "clean": 0,
+          "D1": 0,
+          "D2": 0,
+          "D3": 0,
+          "D4": 0,
+          "D5": 0
+        },
+        "cost": {
+          "audits": 48,
+          "input_tokens_total": 0,
+          "output_tokens_billed_total": 0,
+          "calls_total": 0,
+          "input_tokens_mean": 0.0,
+          "output_tokens_billed_mean": 0.0,
+          "seconds_mean": 0.0
+        }
+      },
+      "A1": {
+        "per_class": {
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D1": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D2": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D3": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D4": {
+            "k": 1,
+            "n": 8,
+            "rate": 0.125,
+            "lo": 0.0031597235312519063,
+            "hi": 0.5265096708752065
+          },
+          "D5": {
+            "k": 2,
+            "n": 8,
+            "rate": 0.25,
+            "lo": 0.03185402624994421,
+            "hi": 0.6508557944128242
+          }
+        },
+        "overall_detection": {
+          "k": 3,
+          "n": 40,
+          "rate": 0.075,
+          "lo": 0.01574217985104153,
+          "hi": 0.20386474873289892
+        },
+        "escalations": {
+          "clean": 0,
+          "D1": 0,
+          "D2": 0,
+          "D3": 0,
+          "D4": 0,
+          "D5": 0
+        },
+        "cost": {
+          "audits": 48,
+          "input_tokens_total": 267494,
+          "output_tokens_billed_total": 12938,
+          "calls_total": 96,
+          "input_tokens_mean": 5572.791666666667,
+          "output_tokens_billed_mean": 269.5416666666667,
+          "seconds_mean": 10.248777036865553
+        }
+      },
+      "A3": {
+        "per_class": {
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D1": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D2": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D3": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D4": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D5": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          }
+        },
+        "overall_detection": {
+          "k": 40,
+          "n": 40,
+          "rate": 1.0,
+          "lo": 0.9119026971211976,
+          "hi": 1.0
+        },
+        "escalations": {
+          "clean": 0,
+          "D1": 0,
+          "D2": 0,
+          "D3": 0,
+          "D4": 0,
+          "D5": 0
+        },
+        "cost": {
+          "audits": 48,
+          "input_tokens_total": 139892,
+          "output_tokens_billed_total": 8459,
+          "calls_total": 48,
+          "input_tokens_mean": 2914.4166666666665,
+          "output_tokens_billed_mean": 176.22916666666666,
+          "seconds_mean": 4.097268937302336
+        }
+      },
+      "A4": {
+        "per_class": {
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "D1": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D2": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D3": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D4": {
+            "k": 8,
+            "n": 8,
+            "rate": 1.0,
+            "lo": 0.6305833524471807,
+            "hi": 1.0
+          },
+          "D5": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          }
+        },
+        "overall_detection": {
+          "k": 32,
+          "n": 40,
+          "rate": 0.8,
+          "lo": 0.6435219813207654,
+          "hi": 0.9094775906000093
+        },
+        "escalations": {
+          "clean": 0,
+          "D1": 0,
+          "D2": 0,
+          "D3": 0,
+          "D4": 0,
+          "D5": 0
+        },
+        "cost": {
+          "audits": 48,
+          "input_tokens_total": 0,
+          "output_tokens_billed_total": 0,
+          "calls_total": 0,
+          "input_tokens_mean": 0.0,
+          "output_tokens_billed_mean": 0.0,
+          "seconds_mean": 2.1462660020830904
+        }
+      }
+    },
+    "paired": {
+      "A3_vs_A4": {
+        "D1": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        },
+        "D2": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        },
+        "D3": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        },
+        "D4": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        },
+        "D5": {
+          "only_first": 8,
+          "only_second": 0,
+          "p": 0.0078125
+        },
+        "null": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        }
+      },
+      "A3_vs_A1": {
+        "D1": {
+          "only_first": 8,
+          "only_second": 0,
+          "p": 0.0078125
+        },
+        "D2": {
+          "only_first": 8,
+          "only_second": 0,
+          "p": 0.0078125
+        },
+        "D3": {
+          "only_first": 8,
+          "only_second": 0,
+          "p": 0.0078125
+        },
+        "D4": {
+          "only_first": 7,
+          "only_second": 0,
+          "p": 0.015625
+        },
+        "D5": {
+          "only_first": 6,
+          "only_second": 0,
+          "p": 0.03125
+        },
+        "null": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        }
+      }
+    },
+    "abstention": {
+      "A1": [
+        {
+          "threshold": 0.1,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.2,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.3,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.4,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.5,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.6,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.7,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.8,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 1.0,
+          "detection": 0.075,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        }
+      ],
+      "A3": [
+        {
+          "threshold": 0.1,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.2,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.3,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.4,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.5,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.6,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.7,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.8,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "detection": 1.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 1.0,
+          "detection": 0.875,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.10416666666666667
+        }
+      ]
+    },
+    "t2_confidence": {
+      "A1": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "A3": [
+        0.95,
+        0.95,
+        0.95,
+        0.99,
+        0.99,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "exploratory": {
+      "critic_alone_first_pass": {
+        "clean": {
+          "k": 0,
+          "n": 8,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.36941664755281917
+        },
+        "D1": {
+          "k": 5,
+          "n": 8,
+          "rate": 0.625,
+          "lo": 0.2448632163665516,
+          "hi": 0.9147665858627465
+        },
+        "D2": {
+          "k": 0,
+          "n": 8,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.36941664755281917
+        },
+        "D3": {
+          "k": 4,
+          "n": 8,
+          "rate": 0.5,
+          "lo": 0.15701277048705797,
+          "hi": 0.842987229512942
+        },
+        "D4": {
+          "k": 5,
+          "n": 8,
+          "rate": 0.625,
+          "lo": 0.2448632163665516,
+          "hi": 0.9147665858627465
+        },
+        "D5": {
+          "k": 7,
+          "n": 8,
+          "rate": 0.875,
+          "lo": 0.4734903291247935,
+          "hi": 0.9968402764687481
+        }
+      }
+    }
+  },
+  "holdout": {
+    "set": "holdout",
+    "n_variants": 16,
+    "code_hashes": [
+      "fdd74ae73898253dfbda6b69af1aa0c6bf936c63344e3251f3557a854b0b94ea"
+    ],
+    "models": [
+      "gemini-3.5-flash-lite"
+    ],
+    "prompt_sha256": [
+      "484e6bfe01faeb53587052d1baf95b5dedad9e599c1a7569d0c776b37d339058"
+    ],
+    "arms": {
+      "A0": {
+        "per_class": {
+          "D5": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          }
+        },
+        "overall_detection": {
+          "k": 0,
+          "n": 8,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.36941664755281917
+        },
+        "escalations": {
+          "D5": 0,
+          "clean": 0
+        },
+        "cost": {
+          "audits": 16,
+          "input_tokens_total": 0,
+          "output_tokens_billed_total": 0,
+          "calls_total": 0,
+          "input_tokens_mean": 0.0,
+          "output_tokens_billed_mean": 0.0,
+          "seconds_mean": 0.0
+        }
+      },
+      "A1": {
+        "per_class": {
+          "D5": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          }
+        },
+        "overall_detection": {
+          "k": 0,
+          "n": 8,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.36941664755281917
+        },
+        "escalations": {
+          "D5": 0,
+          "clean": 0
+        },
+        "cost": {
+          "audits": 16,
+          "input_tokens_total": 88600,
+          "output_tokens_billed_total": 2800,
+          "calls_total": 32,
+          "input_tokens_mean": 5537.5,
+          "output_tokens_billed_mean": 175.0,
+          "seconds_mean": 3.9840859919786453
+        }
+      },
+      "A3": {
+        "per_class": {
+          "D5": {
+            "k": 3,
+            "n": 8,
+            "rate": 0.375,
+            "lo": 0.08523341413725352,
+            "hi": 0.7551367836334484
+          },
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          }
+        },
+        "overall_detection": {
+          "k": 3,
+          "n": 8,
+          "rate": 0.375,
+          "lo": 0.08523341413725352,
+          "hi": 0.7551367836334484
+        },
+        "escalations": {
+          "D5": 0,
+          "clean": 0
+        },
+        "cost": {
+          "audits": 16,
+          "input_tokens_total": 45682,
+          "output_tokens_billed_total": 1434,
+          "calls_total": 16,
+          "input_tokens_mean": 2855.125,
+          "output_tokens_billed_mean": 89.625,
+          "seconds_mean": 4.111612136752228
+        }
+      },
+      "A4": {
+        "per_class": {
+          "D5": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          },
+          "clean": {
+            "k": 0,
+            "n": 8,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.36941664755281917
+          }
+        },
+        "overall_detection": {
+          "k": 0,
+          "n": 8,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.36941664755281917
+        },
+        "escalations": {
+          "D5": 0,
+          "clean": 0
+        },
+        "cost": {
+          "audits": 16,
+          "input_tokens_total": 0,
+          "output_tokens_billed_total": 0,
+          "calls_total": 0,
+          "input_tokens_mean": 0.0,
+          "output_tokens_billed_mean": 0.0,
+          "seconds_mean": 3.032874693746635
+        }
+      }
+    },
+    "paired": {
+      "A3_vs_A4": {
+        "D5": {
+          "only_first": 3,
+          "only_second": 0,
+          "p": 0.25
+        },
+        "null": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        }
+      },
+      "A3_vs_A1": {
+        "D5": {
+          "only_first": 3,
+          "only_second": 0,
+          "p": 0.25
+        },
+        "null": {
+          "only_first": 0,
+          "only_second": 0,
+          "p": 1.0
+        }
+      }
+    },
+    "abstention": {
+      "A1": [
+        {
+          "threshold": 0.1,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.2,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.3,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.4,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.5,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.6,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.7,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.8,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 1.0,
+          "detection": 0.0,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        }
+      ],
+      "A3": [
+        {
+          "threshold": 0.1,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.2,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.3,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.4,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.5,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.6,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.7,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.8,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "detection": 0.375,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.0
+        },
+        {
+          "threshold": 1.0,
+          "detection": 0.125,
+          "false_positive_rate": 0.0,
+          "escalate_rate": 0.125
+        }
+      ]
+    },
+    "t2_confidence": {
+      "A1": [],
+      "A3": [
+        0.95,
+        0.99,
+        1.0
+      ]
+    },
+    "exploratory": {
+      "critic_alone_first_pass": {
+        "D5": {
+          "k": 2,
+          "n": 8,
+          "rate": 0.25,
+          "lo": 0.03185402624994421,
+          "hi": 0.6508557944128242
+        },
+        "clean": {
+          "k": 0,
+          "n": 8,
+          "rate": 0.0,
+          "lo": 0.0,
+          "hi": 0.36941664755281917
+        }
+      }
+    }
+  }
+}

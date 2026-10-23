@@ -6,3 +6,16 @@ __pycache__/
 data/
 results/*
 !results/.gitkeep
+web/work/
+web/runs/
+# Small evidence files the README and docs/TALK.md cite (D-025). The bulk of results/ stays local.
+!results/figures/
+!results/results_table.md
+!results/summary.json
+!results/holdout2_summary.json
+!results/reference_metrics_*.json
+!results/A*_summary.json
+!results/phase1.json
+!results/variants/
+# Archive of the evaluation's results folder; extract it, do not commit it.
+results.zip

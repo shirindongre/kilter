@@ -1,0 +1,281 @@
+/* Components. Depth comes from edge light and recession (spec section 4): no decorative gradients, no blur over 14 px. */
+
+/* --- buttons and controls ------------------------------------------------------------------- */
+.btn {
+  min-height: 44px; padding: 10px 22px; border: 0; cursor: pointer; font: 700 15px/1.2 var(--sans);
+  background: var(--mark); color: var(--hull);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 2px 5px rgba(0,0,0,.4);
+  transition: background-color var(--t-hover) var(--prod), transform var(--t-press) var(--prod);
+}
+.btn:hover:not(:disabled) { background: var(--mark-hi); }
+.btn:active:not(:disabled) { transform: scale(.985); }
+.btn:disabled { background: var(--scribe); color: var(--mute-3); cursor: not-allowed; box-shadow: none; }
+.btn--2 {
+  background: transparent; color: var(--chalk); border: 1px solid var(--mute-3); box-shadow: none; font-weight: 600;
+  transition: background-color var(--t-hover) var(--prod), border-color var(--t-hover) var(--prod), transform var(--t-press) var(--prod);
+}
+.btn--2:hover:not(:disabled) { background: rgba(232,179,60,.08); border-color: var(--mark); }
+.btn--2:disabled { background: transparent; color: var(--mute-3); border-color: var(--rule); }
+.btn--sm { min-height: 44px; padding: 6px 14px; font-size: 14px; }
+
+.seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.seg button {
+  min-height: 44px; padding: 10px 16px; cursor: pointer; font: 600 14.5px/1.2 var(--sans);
+  background: transparent; color: var(--chalk-2); border: 1px solid var(--mute-3);
+  transition: background-color var(--t-hover) var(--prod), color var(--t-hover) var(--prod), border-color var(--t-hover) var(--prod);
+}
+.seg button:hover { border-color: var(--mark); }
+.seg button[aria-pressed="true"] { background: var(--mark); color: var(--hull); border-color: var(--mark); }
+.seg button:disabled { color: var(--mute-3); border-color: var(--rule); cursor: not-allowed; }
+
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field > label, .field > .t-label { color: var(--chalk-3); }
+.check { display: flex; gap: 12px; align-items: flex-start; }
+.check input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--mark); flex: none; }
+.check label { color: var(--chalk-2); }
+.file {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; cursor: pointer;
+  border: 1px dashed var(--mute-3); color: var(--chalk-2); font: 600 14.5px/1.2 var(--sans);
+}
+.file:hover, .file:focus-within { border-color: var(--mark); }
+.file input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.area {
+  width: 100%; min-height: 240px; padding: 14px; background: var(--boot); color: var(--chalk-2);
+  border: 1px solid var(--rule); font: 400 13px/1.7 var(--mono); resize: vertical; tab-size: 4;
+}
+.note { color: var(--mute); font: 400 14px/1.5 var(--sans); max-width: 62ch; }
+.note b { color: var(--chalk-3); font-weight: 600; }
+
+/* --- panels (spec section 4) ---------------------------------------------------------------- */
+.panel { background: var(--boot); padding: 22px 26px; box-shadow: inset 0 1px 0 rgba(237,234,226,.06), 0 1px 6px rgba(0,0,0,.4); }
+.panel--flag  { box-shadow: inset 4px 0 0 var(--rust),  inset 0 1px 0 rgba(237,234,226,.06), 0 1px 6px rgba(0,0,0,.4); transition: box-shadow var(--t-small) var(--prod); }
+.panel--flag:hover { box-shadow: inset 6px 0 0 var(--rust), inset 0 1px 0 rgba(237,234,226,.06), 0 1px 6px rgba(0,0,0,.4); }
+.panel--query { box-shadow: inset 4px 0 0 var(--mute-3), inset 0 1px 0 rgba(237,234,226,.06), 0 1px 6px rgba(0,0,0,.4); transition: box-shadow var(--t-small) var(--prod); }
+.panel--query:hover { box-shadow: inset 6px 0 0 var(--mute-3), inset 0 1px 0 rgba(237,234,226,.06), 0 1px 6px rgba(0,0,0,.4); }
+.panel--esc   { box-shadow: inset 4px 0 0 var(--ember), inset 0 1px 0 rgba(237,234,226,.06), 0 1px 6px rgba(0,0,0,.4); }
+.panel--top   { box-shadow: inset 0 3px 0 var(--mark),  inset 0 4px 0 rgba(237,234,226,.06), 0 1px 5px rgba(0,0,0,.4); }
+
+/* --- the mark scale (spec section 6.1) ------------------------------------------------------ */
+.ms { position: relative; width: 460px; max-width: 100%; height: var(--h, 620px); }
+.ms-plate {
+  position: absolute; left: 92px; top: 0; width: 148px; height: 100%; background: var(--boot); overflow: hidden;
+  transform-origin: top;
+  box-shadow: inset 0 0 0 1px rgba(237,234,226,.07), inset 5px 0 14px rgba(0,0,0,.55), inset -3px 0 10px rgba(0,0,0,.4);
+}
+.ms-water {
+  position: absolute; inset: 0; background: var(--sea); transform-origin: top; transform: scaleY(var(--fill, 0));
+  transition: transform var(--t-move) var(--enter);
+  box-shadow: inset 0 2px 0 rgba(237,234,226,.18), inset 0 -6px 14px rgba(14,32,29,.5);
+}
+.ms-tick { position: absolute; left: 0; right: 0; height: 1px; background: var(--scribe); }
+.ms-hatch {
+  position: absolute; left: 0; right: 0; bottom: 0; top: var(--hatch-top, 100%);
+  background: repeating-linear-gradient(135deg, rgba(224,122,78,.16) 0 6px, transparent 6px 13px);
+}
+.ms-num { position: absolute; left: 0; width: 80px; text-align: right; font: 900 42px/1 var(--sans); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; transition: color var(--t-hover) var(--prod); }
+.ms-num small { display: block; margin-top: 4px; font: 400 11.5px/1.3 var(--mono); letter-spacing: 0; color: var(--mute-2); }
+.ms-num--t0 { color: var(--chalk); }
+.ms-num--t1 { color: var(--mark); }
+.ms-num--t2 { color: var(--mute-3); }
+.ms-num--esc { color: var(--ember); font-size: 34px; }
+.ms-num--t2:hover, .ms-num--t1:hover { color: var(--chalk); }
+.ms-mark {
+  position: absolute; left: 84px; top: 0; width: 296px; height: 5px;   /* spec says left 60 / 320 wide; at 60 it strikes through the tier numeral, so it starts at 84 and still overhangs the plate */
+  background: var(--mark);
+  transform: translateY(var(--y, 0px)); transition: transform var(--t-move) var(--enter), opacity var(--t-move) var(--enter);
+  box-shadow: 0 -1px 0 rgba(255,255,255,.4), 0 3px 8px rgba(0,0,0,.55);
+}
+.ms[data-mark="clear"] .ms-mark { background: var(--pass); }
+.ms[data-mark="esc"] .ms-mark { background: repeating-linear-gradient(90deg, var(--ember) 0 13px, transparent 13px 23px); box-shadow: none; }
+.ms[data-mark="unset"] .ms-mark, .ms[data-mark="unset"] .ms-call { opacity: 0; }
+.ms-call {
+  position: absolute; left: 396px; top: -12px; width: 130px; transform: translateY(var(--y, 0px));
+  transition: transform var(--t-move) var(--enter);
+}
+.ms-call b { display: block; font: 900 15px/1.2 var(--sans); letter-spacing: 0.01em; color: var(--mark); text-shadow: 0 1px 0 rgba(0,0,0,.4); }
+.ms[data-mark="clear"] .ms-call b { color: var(--pass); }
+.ms[data-mark="esc"] .ms-call b { color: var(--chalk); }
+.ms-call span { display: block; font: 400 11.5px/1.4 var(--mono); color: var(--mute); overflow-wrap: anywhere; }
+
+.k-plate  { animation: k-plate var(--t-plate) var(--enter) both; }
+.k-flood  { animation: k-flood 700ms var(--enter) 200ms both; }
+.k-settle { animation: k-settle var(--t-settle) var(--enter) 300ms both; }
+.k-fade   { animation: k-fade 260ms var(--enter) 300ms both; }
+.k-fail   { animation: k-fail 1100ms var(--enter) 200ms both; }
+.k-hatch  { animation: k-fade 300ms var(--enter) 1320ms both; }
+@keyframes k-plate  { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes k-flood  { from { transform: scaleY(0); } to { transform: scaleY(var(--fill, 0)); } }
+@keyframes k-settle { 0% { transform: translateY(calc(var(--y, 0px) - 138px)); } 84% { transform: translateY(calc(var(--y, 0px) + 8px)); } 100% { transform: translateY(var(--y, 0px)); } }
+@keyframes k-fade   { from { opacity: 0; } to { opacity: 1; } }
+/* The mark fails to hold: falls to the line of the tier that could not run, hangs there, then slides to rest in the hatch. */
+@keyframes k-fail {
+  0%   { transform: translateY(var(--y-start, 10px)); }
+  38%  { transform: translateY(var(--y-line, 262px)); }
+  54%  { transform: translateY(var(--y-line, 262px)); }
+  100% { transform: translateY(var(--y, 312px)); }
+}
+
+/* --- verdict block (spec section 6.3): a painted word, a rule, one sentence. Never a badge. -- */
+.verdict { display: flex; flex-direction: column; gap: 14px; }
+.verdict .t-mark { margin: 0; }
+.v-in  { color: var(--pass); }
+.v-out { color: var(--mark); }
+.v-esc { color: var(--chalk); }
+.v-rule { height: 3px; width: 160px; background: currentColor; box-shadow: 0 1px 0 rgba(0,0,0,.4); }
+.v-esc + .v-rule { background: var(--ember); }
+.verdict p.lead { font: 400 19px/1.5 var(--sans); color: var(--chalk); max-width: 46ch; }
+.meta { display: flex; gap: 22px; flex-wrap: wrap; font: 400 12.5px/1.6 var(--mono); color: var(--mute); }
+.meta b { color: var(--chalk-3); font-weight: 500; }
+
+.truth { display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline; padding: 14px 18px; background: var(--boot); border-left: 3px solid var(--scribe); }
+.truth .w { font: 900 15px/1 var(--sans); letter-spacing: 0.01em; text-transform: uppercase; }
+.truth .w--ok { color: var(--pass); }
+.truth .w--bad { color: var(--ember); }
+.truth .w--none { color: var(--chalk-3); }
+
+/* --- tier chips: identity by lightness, not hue (spec section 1, rule 2) ---------------------- */
+.tier { display: inline-block; padding: 1px 8px; font: 500 12px/1.7 var(--mono); border: 1px solid currentColor; white-space: nowrap; }
+.tier--t0 { color: var(--chalk); }
+.tier--t1 { color: var(--mark); }
+.tier--t2 { color: var(--mute-3); }
+
+/* --- finding block (spec section 6.4) --------------------------------------------------------- */
+.finding { display: flex; flex-direction: column; gap: 14px; }
+.finding-head { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.badge { background: var(--rust); color: var(--chalk); padding: 2px 10px; font: 700 13.5px/1.6 var(--mono); }
+.badge--q { background: transparent; color: var(--chalk-2); border: 1px solid var(--mute-3); }
+.finding .stmt { max-width: 76ch; color: var(--chalk-2); }
+.finding .evid { font: 400 12.5px/1.8 var(--mono); color: var(--mute); max-width: 100ch; overflow-wrap: anywhere; }
+.witnesses { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font: 400 13px/1.6 var(--sans); color: var(--mute); }
+.remedy { padding-top: 12px; border-top: 1px solid var(--rule-faint); max-width: 76ch; }
+.remedy b { color: var(--chalk); font-weight: 700; }
+.wit-note { font: 400 14px/1.55 var(--sans); color: var(--chalk-3); max-width: 76ch; }
+
+.code { background: var(--boot); border: 1px solid var(--rule-faint); }
+.code-head { display: flex; justify-content: space-between; gap: 18px; padding: 6px 14px; border-bottom: 1px solid var(--rule-faint); font: 400 12px/1.8 var(--mono); color: var(--mute); }
+.code-body { overflow-x: auto; padding: 6px 0; }
+.code-line { display: grid; grid-template-columns: 56px 1fr; font: 400 13px/1.9 var(--mono); color: var(--mute-2); border-left: 3px solid transparent; white-space: pre; min-width: max-content; }
+.code-line i { font-style: normal; text-align: right; padding-right: 14px; color: var(--mute-3); font-variant-numeric: tabular-nums; user-select: none; }
+.code-line.hit { color: var(--chalk); border-left-color: var(--mark); background: rgba(232,179,60,.07); }
+.code-line.hit i { color: var(--mark); }
+
+/* --- sensitivity ------------------------------------------------------------------------------ */
+.sens { display: flex; flex-direction: column; gap: 14px; }
+.sens-row { display: grid; grid-template-columns: 150px 1fr 70px; gap: 14px; align-items: center; font: 400 13px/1.6 var(--mono); }
+.sens-bar { height: 10px; background: var(--rule-faint); position: relative; }
+.sens-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--sea); }
+.sens-row.stated .sens-bar i { background: var(--mark); }
+.sens-row .lab { color: var(--chalk-3); }
+.sens-row .val { text-align: right; color: var(--chalk); }
+
+/* --- register (spec section 6.5) -------------------------------------------------------------- */
+.register { border-top: 1px solid var(--rule-faint); }
+.reg-row {
+  display: flex; align-items: baseline; gap: 14px; padding: 13px 14px; border-bottom: 1px solid var(--rule-faint);
+  transition: background-color var(--t-press) var(--prod);
+}
+.reg-row:hover, .reg-row:focus-within, .reg-row:focus { background: rgba(62,111,115,.14); }
+.reg-row .no { flex: 0 0 52px; font: 400 12.5px/1.5 var(--mono); color: var(--mute-2); font-variant-numeric: tabular-nums; }
+.reg-row .tr { flex: 0 0 76px; }
+.reg-row .nm { flex: 1 1 320px; color: var(--chalk); font: 600 15px/1.5 var(--sans); }
+.reg-row .as { flex: 1 1 300px; font: 400 12.5px/1.6 var(--mono); color: var(--mute); opacity: 0; transition: opacity var(--t-hover) var(--prod); }
+.reg-row:hover .as, .reg-row:focus-within .as, .reg-row:focus .as { opacity: 1; }
+.reg-row .rs { flex: 0 0 130px; text-align: right; font: 700 14px/1.5 var(--sans); }
+.rs--fired { color: var(--mark); }
+.rs--clear { color: var(--pass); }
+.rs--could_not_run { color: var(--ember); }
+.rs--no_objection { color: var(--chalk-3); }
+.rs--query { color: var(--chalk-2); }
+.k-stamp { animation: k-fade 110ms var(--enter) both; animation-delay: calc(var(--i, 0) * 40ms + 300ms); }
+
+/* --- escalate: blockers and what a person should look at -------------------------------------- */
+.blocker { display: flex; flex-direction: column; gap: 12px; }
+.blocker .decide { max-width: 70ch; color: var(--chalk); }
+.blocker .decide b { color: var(--ember); font-weight: 700; }
+.cmd { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.cmd code { background: var(--hull); padding: 8px 12px; font-size: 13px; color: var(--chalk-2); border: 1px solid var(--rule-faint); }
+.bounds { display: flex; flex-direction: column; gap: 12px; max-width: 76ch; }
+.bounds li { padding-left: 22px; position: relative; color: var(--chalk-2); }
+.bounds li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 2px; background: var(--mute-3); }
+
+/* --- cost and provenance ---------------------------------------------------------------------- */
+.figs { display: flex; gap: 56px; flex-wrap: wrap; }
+.fig { display: flex; flex-direction: column; gap: 6px; }
+.fig small { font: 600 13.5px/1.4 var(--sans); color: var(--mute); }
+.fig .t-fig.slot { font: 900 34px/1 var(--sans); }
+.kv { display: grid; grid-template-columns: 190px 1fr; gap: 6px 22px; font: 400 12.5px/1.8 var(--mono); }
+.kv dt { color: var(--mute); }
+.kv dd { color: var(--chalk-2); overflow-wrap: anywhere; }
+.ok { color: var(--pass); }
+.bad { color: var(--ember); }
+details.src > summary { cursor: pointer; font: 600 15px/1.5 var(--sans); color: var(--chalk); min-height: 44px; display: flex; align-items: center; }
+details.src[open] > summary { margin-bottom: 14px; }
+
+/* --- progress (the tiers lighting up) --------------------------------------------------------- */
+.stages { display: flex; flex-direction: column; border-top: 1px solid var(--rule-faint); }
+.stage { display: flex; gap: 14px; align-items: baseline; padding: 12px 14px; border-bottom: 1px solid var(--rule-faint); }
+.stage .nm { flex: 1; color: var(--chalk-2); font-weight: 600; }
+.stage .st { font: 500 12.5px/1.5 var(--mono); color: var(--mute-2); }
+.stage[data-s="running"] .nm { color: var(--chalk); }
+.stage[data-s="running"] .st { color: var(--mark); }
+.stage[data-s="done"] .st { color: var(--pass); }
+.stage[data-s="failed"] .st { color: var(--ember); }
+.errbox { padding: 18px 22px; background: var(--boot); box-shadow: inset 4px 0 0 var(--ember); display: flex; flex-direction: column; gap: 8px; }
+.errbox b { color: var(--chalk); }
+
+/* --- tables (samples, history) ---------------------------------------------------------------- */
+.tbl { width: 100%; border-collapse: collapse; }
+.tbl th { text-align: left; padding: 10px 14px; font: 600 13.5px/1.4 var(--sans); color: var(--mute); border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--hull); }
+.tbl td { padding: 8px 14px; border-bottom: 1px solid var(--rule-faint); vertical-align: middle; height: 52px; }
+.tbl tr { transition: background-color var(--t-press) var(--prod); }
+.tbl tbody tr:hover { background: rgba(62,111,115,.14); }
+.tbl .id { font: 500 13px/1.4 var(--mono); color: var(--chalk); }
+.tbl .sub { font: 400 12px/1.4 var(--mono); color: var(--mute-2); }
+.tbl .acts { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+.out { font: 700 14px/1.4 var(--sans); }
+.out--caught, .out--clean_ok { color: var(--pass); }
+.out--missed, .out--false_alarm, .out--wrong_class { color: var(--ember); }
+.out--escalated { color: var(--chalk-3); }
+.out--none { color: var(--mute-2); font-weight: 400; }
+.summary { display: flex; gap: 48px; flex-wrap: wrap; align-items: flex-end; }
+.pbar { height: 6px; background: var(--rule-faint); width: 100%; margin-top: 10px; }
+.pbar i { display: block; height: 100%; background: var(--mark); transform-origin: left; transition: transform var(--t-move) var(--enter); }
+
+/* --- fleet (D-025): tile grid, confusion tables, integrity list ------------------------------------ */
+.fleet-checks { display: flex; flex-direction: column; gap: 8px; max-width: 110ch; }
+.fleet-checks li { color: var(--chalk-2); font: 400 14.5px/1.5 var(--sans); }
+.fleet-checks .ok, .fleet-checks .bad { font: 700 12.5px/1.5 var(--mono); margin-right: 6px; }
+.fleet-arms { display: flex; gap: 22px; flex-wrap: wrap; }
+.fleet-arm { flex: 1 1 340px; display: flex; flex-direction: column; gap: 14px; }
+.fleet-conf { display: flex; gap: 40px; flex-wrap: wrap; }
+.fleet-conf > * { flex: 1 1 520px; min-width: 0; }
+.fleet-scroll { overflow-x: auto; }
+.fleet-scroll:focus-visible { outline: 2px solid var(--mark); outline-offset: 2px; }
+.fgrid th, .fgrid td { vertical-align: top; }
+.fgrid .frow { position: sticky; left: 0; background: var(--hull); z-index: 1; font: 500 13px/1.4 var(--mono); color: var(--chalk-3); white-space: nowrap; text-align: left; padding: 8px 14px; border-bottom: 1px solid var(--rule-faint); }
+.fgrid td.ftile { height: auto; min-width: 190px; padding: 4px 8px; }
+.fline { display: flex; gap: 8px; align-items: baseline; flex-wrap: nowrap; white-space: nowrap; min-height: 32px; padding: 5px 8px; color: var(--chalk-2); text-decoration: none; border-left: 3px solid transparent; transition: background-color var(--t-press) var(--prod); }
+a.fline:hover, a.fline:focus-visible { background: rgba(62,111,115,.22); }
+.fline--bad { border-left-color: var(--ember); }
+.fline .fa { font: 500 12px/1.4 var(--mono); color: var(--mute-2); flex: 0 0 22px; }
+.fline .out { font-size: 13.5px; }
+.fline .tier { font-size: 11px; line-height: 1.5; }
+.fa-extra { font-size: 11.5px; color: var(--mute); }
+.fconf th[scope=row] { text-align: left; padding: 8px 14px; border-bottom: 1px solid var(--rule-faint); }
+.fconf td.num, .fconf th.num { text-align: right; font: 500 13.5px/1.4 var(--mono); color: var(--chalk-2); }
+.fconf td.fc-diag { color: var(--mark); font-weight: 700; }
+.fconf td.fc-zero { color: var(--mute-3); font-weight: 400; }
+
+/* phone width: the mark scale fits a 358 px column, the register wraps, and assertions are always shown (no hover on touch) */
+@media (max-width: 760px) {
+  .ms-mark { width: calc(100% - 84px); }
+  .ms-call { left: auto; right: 0; width: 112px; top: -40px; text-align: right; }
+  .reg-row { flex-wrap: wrap; row-gap: 4px; }
+  .reg-row .no { order: 1; flex-basis: 36px; }
+  .reg-row .tr { order: 2; flex: 0 0 auto; }
+  .reg-row .rs { order: 3; margin-left: auto; flex: 0 0 auto; }
+  .reg-row .nm { order: 4; flex: 1 1 100%; }
+  .reg-row .as { order: 5; flex: 1 1 100%; opacity: 1; }
+  .figs, .summary { gap: 24px; }
+  .kv { grid-template-columns: 1fr; }
+}

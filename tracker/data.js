@@ -1,7 +1,7 @@
 // Single source of truth for the tracker. Edit task `status` only: done | active | blocked | todo.
 // Percentages, columns and feature-map colours are all derived in index.html.
 window.KILTER_TRACKER = {
-  updated: "2026-10-18",
+  updated: "2026-10-23",
   phases: [
     { id: "d0", name: "Day 0 · Setup", when: "Sat 17 Oct, 23:00", gate: "pytest green · pinned provider reachable (Google only, D-012) · both datasets load · clean analysis has recorded metrics" },
     { id: "d1", name: "Day 1 · Sound verifier", when: "Sun 18 Oct", gate: "T0+T1 catch ≥80% of injected D1–D4, 0 false positives on 8 clean variants — no LLM called" },
@@ -38,9 +38,9 @@ window.KILTER_TRACKER = {
     { id: "P3.2", phase: "d3", title: "Verdict screen + report.md emitter", status: "done", ref: "§5.7" },
     { id: "P3.3", phase: "d3", title: "Metrics: detection, FPR, abstention, cost, exact binomial CIs", status: "done", ref: "§8.2–8.3" },
     { id: "P3.4", phase: "d3", title: "Three figures", status: "done", ref: "§5.3" },
-    { id: "P3.5", phase: "d3", title: "`kilter demo` cached path + 90s recording", status: "blocked", note: "kilter demo is done and tested (identical x3, offline). Needs YOUR 90 s screen recording, laptop + phone", ref: "§5.7" },
+    { id: "P3.5", phase: "d3", title: "`kilter demo` cached path + 90s recording", status: "blocked", note: "kilter demo is done and tested (identical x3, offline). Needs YOUR 90 s screen recording, laptop + phone. Script: docs/RECORDING.md", ref: "§5.7" },
     { id: "P3.6", phase: "d3", title: "README (headline + baseline + Limitations)", status: "done", ref: "§5.7" },
-    { id: "P3.7", phase: "d3", title: "5-min script + question sheet, rehearsed once", status: "blocked", note: "Script and Q&A written (docs/TALK.md). Needs YOUR timed out-loud rehearsal", ref: "§5.8" }
+    { id: "P3.7", phase: "d3", title: "5-min script + question sheet, rehearsed once", status: "blocked", note: "Script and Q&A written (docs/TALK.md). Needs YOUR timed out-loud rehearsal. Protocol: docs/RECORDING.md", ref: "§5.8" }
   ],
   // Feature map: status is derived from the linked tasks.
   features: [
@@ -81,6 +81,7 @@ window.KILTER_TRACKER = {
   future: [
     { phase: "Phase 2 (optional)", items: [
       "DONE 2026-10-19 (not proven, p=0.25): scope-claim critic prompt on a fresh holdout — 7/8 vs 4/8, FP 0/8 (D-022, D-023)",
+      "DONE 2026-10-23: local web UI (D-024) and fleet view over results/ (D-025); fleet counts reconciled with the evaluation summaries, 28 of 28 agree",
       "Arm A2 — separate LLM critic, T2 only (isolates AD-2)",
       "scRNA-seq track: D6 double dipping, D7 cell-level splitting, D8 batch confound",
       "D9 normalisation order, D10 imbalance-masking metric",

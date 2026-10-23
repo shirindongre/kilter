@@ -1,0 +1,75 @@
+{
+  "prompt_sha256": {
+    "frozen": "484e6bfe01faeb53587052d1baf95b5dedad9e599c1a7569d0c776b37d339058",
+    "scope": "abefc286eab36c81912aa6377cc39d585e32899d4516656115fc6509ed4c8aef"
+  },
+  "arms": {
+    "frozen": {
+      "detect_B5": {
+        "k": 4,
+        "n": 8,
+        "lo": 0.15701277048705797,
+        "hi": 0.842987229512942,
+        "hits": [
+          "bace-b1-B5",
+          "bace-b3-B5",
+          "bbbp-b1-B5",
+          "bbbp-b3-B5"
+        ]
+      },
+      "fp_HC2": {
+        "k": 0,
+        "n": 8,
+        "lo": 0.0,
+        "hi": 0.36941664755281917,
+        "hits": []
+      },
+      "tokens": {
+        "input": 46067,
+        "output_billed": 1629,
+        "seconds": 113.7
+      }
+    },
+    "scope": {
+      "detect_B5": {
+        "k": 7,
+        "n": 8,
+        "lo": 0.4734903291247935,
+        "hi": 0.9968402764687481,
+        "hits": [
+          "bace-b0-B5",
+          "bace-b1-B5",
+          "bace-b3-B5",
+          "bbbp-b0-B5",
+          "bbbp-b1-B5",
+          "bbbp-b2-B5",
+          "bbbp-b3-B5"
+        ]
+      },
+      "fp_HC2": {
+        "k": 0,
+        "n": 8,
+        "lo": 0.0,
+        "hi": 0.36941664755281917,
+        "hits": []
+      },
+      "tokens": {
+        "input": 48691,
+        "output_billed": 2053,
+        "seconds": 73.6
+      }
+    }
+  },
+  "paired_scope_vs_frozen": {
+    "detect_B5": {
+      "only_first": 3,
+      "only_second": 0,
+      "p": 0.25
+    },
+    "fp_HC2": {
+      "only_first": 0,
+      "only_second": 0,
+      "p": 1.0
+    }
+  }
+}

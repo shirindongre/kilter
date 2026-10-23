@@ -1,0 +1,930 @@
+[
+  {
+    "variant": "bace-b0-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2733,
+      "output": 80,
+      "thinking": 0,
+      "output_billed": 80
+    },
+    "seconds": 9.508,
+    "run_id": "bace-b0-clean__A3__19df8613",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b1-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2712,
+      "output": 58,
+      "thinking": 0,
+      "output_billed": 58
+    },
+    "seconds": 4.757,
+    "run_id": "bace-b1-clean__A3__8e73fc5d",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b2-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2713,
+      "output": 53,
+      "thinking": 0,
+      "output_billed": 53
+    },
+    "seconds": 4.412,
+    "run_id": "bace-b2-clean__A3__2b32c94b",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b3-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2709,
+      "output": 80,
+      "thinking": 0,
+      "output_billed": 80
+    },
+    "seconds": 5.152,
+    "run_id": "bace-b3-clean__A3__6cea1afc",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b0-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2984,
+      "output": 66,
+      "thinking": 0,
+      "output_billed": 66
+    },
+    "seconds": 7.389,
+    "run_id": "bbbp-b0-clean__A3__331fe9a5",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b1-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2984,
+      "output": 77,
+      "thinking": 0,
+      "output_billed": 77
+    },
+    "seconds": 6.675,
+    "run_id": "bbbp-b1-clean__A3__a5819466",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b2-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2983,
+      "output": 77,
+      "thinking": 0,
+      "output_billed": 77
+    },
+    "seconds": 8.211,
+    "run_id": "bbbp-b2-clean__A3__d290e230",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b3-clean",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2956,
+      "output": 80,
+      "thinking": 0,
+      "output_billed": 80
+    },
+    "seconds": 8.253,
+    "run_id": "bbbp-b3-clean__A3__20aef431",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b0-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2859,
+      "output": 178,
+      "thinking": 0,
+      "output_billed": 178
+    },
+    "seconds": 8.109,
+    "run_id": "bace-b0-D1__A3__aaaa7449",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b1-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2846,
+      "output": 170,
+      "thinking": 0,
+      "output_billed": 170
+    },
+    "seconds": 9.062,
+    "run_id": "bace-b1-D1__A3__39368425",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b2-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2859,
+      "output": 160,
+      "thinking": 0,
+      "output_billed": 160
+    },
+    "seconds": 7.893,
+    "run_id": "bace-b2-D1__A3__d810e37b",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b3-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2832,
+      "output": 184,
+      "thinking": 0,
+      "output_billed": 184
+    },
+    "seconds": 8.475,
+    "run_id": "bace-b3-D1__A3__8715029e",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b0-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3067,
+      "output": 192,
+      "thinking": 0,
+      "output_billed": 192
+    },
+    "seconds": 8.44,
+    "run_id": "bbbp-b0-D1__A3__7ed89354",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b1-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3094,
+      "output": 150,
+      "thinking": 0,
+      "output_billed": 150
+    },
+    "seconds": 8.192,
+    "run_id": "bbbp-b1-D1__A3__58001545",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b2-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3102,
+      "output": 186,
+      "thinking": 0,
+      "output_billed": 186
+    },
+    "seconds": 8.163,
+    "run_id": "bbbp-b2-D1__A3__ae96a872",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b3-D1",
+    "truth": "D1",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3098,
+      "output": 187,
+      "thinking": 0,
+      "output_billed": 187
+    },
+    "seconds": 7.922,
+    "run_id": "bbbp-b3-D1__A3__6c546e31",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b0-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2902,
+      "output": 270,
+      "thinking": 0,
+      "output_billed": 270
+    },
+    "seconds": 7.99,
+    "run_id": "bace-b0-D2__A3__f7ce868c",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b1-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2902,
+      "output": 276,
+      "thinking": 0,
+      "output_billed": 276
+    },
+    "seconds": 8.555,
+    "run_id": "bace-b1-D2__A3__6c0eae5f",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b2-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2919,
+      "output": 259,
+      "thinking": 0,
+      "output_billed": 259
+    },
+    "seconds": 8.853,
+    "run_id": "bace-b2-D2__A3__d07c54bb",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b3-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2902,
+      "output": 354,
+      "thinking": 0,
+      "output_billed": 354
+    },
+    "seconds": 8.512,
+    "run_id": "bace-b3-D2__A3__2a0e1a03",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b0-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3045,
+      "output": 263,
+      "thinking": 0,
+      "output_billed": 263
+    },
+    "seconds": 8.781,
+    "run_id": "bbbp-b0-D2__A3__c5d1b4b1",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b1-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3078,
+      "output": 268,
+      "thinking": 0,
+      "output_billed": 268
+    },
+    "seconds": 8.186,
+    "run_id": "bbbp-b1-D2__A3__65f4606f",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b2-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3080,
+      "output": 318,
+      "thinking": 0,
+      "output_billed": 318
+    },
+    "seconds": 8.221,
+    "run_id": "bbbp-b2-D2__A3__d30ee62b",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b3-D2",
+    "truth": "D2",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3031,
+      "output": 307,
+      "thinking": 0,
+      "output_billed": 307
+    },
+    "seconds": 8.278,
+    "run_id": "bbbp-b3-D2__A3__88796763",
+    "tiers": [
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b0-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2960,
+      "output": 154,
+      "thinking": 0,
+      "output_billed": 154
+    },
+    "seconds": 3.617,
+    "run_id": "bace-b0-D3__A3__744c1f6f",
+    "tiers": [
+      "T0",
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b1-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2942,
+      "output": 261,
+      "thinking": 0,
+      "output_billed": 261
+    },
+    "seconds": 3.307,
+    "run_id": "bace-b1-D3__A3__79148448",
+    "tiers": [
+      "T0",
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b2-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2764,
+      "output": 55,
+      "thinking": 0,
+      "output_billed": 55
+    },
+    "seconds": 7.528,
+    "run_id": "bace-b2-D3__A3__7fd57ad0",
+    "tiers": [
+      "T0"
+    ]
+  },
+  {
+    "variant": "bace-b3-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2760,
+      "output": 60,
+      "thinking": 0,
+      "output_billed": 60
+    },
+    "seconds": 8.682,
+    "run_id": "bace-b3-D3__A3__7a204e3a",
+    "tiers": [
+      "T0"
+    ]
+  },
+  {
+    "variant": "bbbp-b0-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3095,
+      "output": 229,
+      "thinking": 0,
+      "output_billed": 229
+    },
+    "seconds": 3.448,
+    "run_id": "bbbp-b0-D3__A3__c7370637",
+    "tiers": [
+      "T0",
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b1-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3095,
+      "output": 329,
+      "thinking": 0,
+      "output_billed": 329
+    },
+    "seconds": 3.648,
+    "run_id": "bbbp-b1-D3__A3__f9f3d390",
+    "tiers": [
+      "T0",
+      "T1",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b2-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3039,
+      "output": 62,
+      "thinking": 0,
+      "output_billed": 62
+    },
+    "seconds": 8.293,
+    "run_id": "bbbp-b2-D3__A3__4b009938",
+    "tiers": [
+      "T0"
+    ]
+  },
+  {
+    "variant": "bbbp-b3-D3",
+    "truth": "D3",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3012,
+      "output": 70,
+      "thinking": 0,
+      "output_billed": 70
+    },
+    "seconds": 7.986,
+    "run_id": "bbbp-b3-D3__A3__5f925fe6",
+    "tiers": [
+      "T0"
+    ]
+  },
+  {
+    "variant": "bace-b0-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2763,
+      "output": 134,
+      "thinking": 0,
+      "output_billed": 134
+    },
+    "seconds": 8.366,
+    "run_id": "bace-b0-D4__A3__b1f66173",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b1-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2766,
+      "output": 162,
+      "thinking": 0,
+      "output_billed": 162
+    },
+    "seconds": 9.437,
+    "run_id": "bace-b1-D4__A3__adc5c232",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b2-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2768,
+      "output": 181,
+      "thinking": 0,
+      "output_billed": 181
+    },
+    "seconds": 8.95,
+    "run_id": "bace-b2-D4__A3__b0685a3f",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b3-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2764,
+      "output": 169,
+      "thinking": 0,
+      "output_billed": 169
+    },
+    "seconds": 7.628,
+    "run_id": "bace-b3-D4__A3__826f9f36",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b0-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3047,
+      "output": 170,
+      "thinking": 0,
+      "output_billed": 170
+    },
+    "seconds": 13.346,
+    "run_id": "bbbp-b0-D4__A3__10951900",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b1-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3047,
+      "output": 176,
+      "thinking": 0,
+      "output_billed": 176
+    },
+    "seconds": 7.471,
+    "run_id": "bbbp-b1-D4__A3__e2c9caa9",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b2-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3046,
+      "output": 149,
+      "thinking": 0,
+      "output_billed": 149
+    },
+    "seconds": 7.405,
+    "run_id": "bbbp-b2-D4__A3__0a54932c",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b3-D4",
+    "truth": "D4",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 3050,
+      "output": 170,
+      "thinking": 0,
+      "output_billed": 170
+    },
+    "seconds": 8.445,
+    "run_id": "bbbp-b3-D4__A3__4410a0c9",
+    "tiers": [
+      "T0",
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b0-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2721,
+      "output": 198,
+      "thinking": 0,
+      "output_billed": 198
+    },
+    "seconds": 8.012,
+    "run_id": "bace-b0-D5__A3__a4600ef8",
+    "tiers": [
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b1-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2704,
+      "output": 211,
+      "thinking": 0,
+      "output_billed": 211
+    },
+    "seconds": 8.708,
+    "run_id": "bace-b1-D5__A3__378ea040",
+    "tiers": [
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b2-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2694,
+      "output": 183,
+      "thinking": 0,
+      "output_billed": 183
+    },
+    "seconds": 9.063,
+    "run_id": "bace-b2-D5__A3__6a99f58e",
+    "tiers": [
+      "T2"
+    ]
+  },
+  {
+    "variant": "bace-b3-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2688,
+      "output": 195,
+      "thinking": 0,
+      "output_billed": 195
+    },
+    "seconds": 9.471,
+    "run_id": "bace-b3-D5__A3__71a932a2",
+    "tiers": [
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b0-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2961,
+      "output": 257,
+      "thinking": 0,
+      "output_billed": 257
+    },
+    "seconds": 10.197,
+    "run_id": "bbbp-b0-D5__A3__e07ec299",
+    "tiers": [
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b1-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2947,
+      "output": 210,
+      "thinking": 0,
+      "output_billed": 210
+    },
+    "seconds": 9.268,
+    "run_id": "bbbp-b1-D5__A3__2a54ee9a",
+    "tiers": [
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b2-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2939,
+      "output": 193,
+      "thinking": 0,
+      "output_billed": 193
+    },
+    "seconds": 7.994,
+    "run_id": "bbbp-b2-D5__A3__eff00775",
+    "tiers": [
+      "T2"
+    ]
+  },
+  {
+    "variant": "bbbp-b3-D5",
+    "truth": "D5",
+    "verdict": "OUT OF KILTER",
+    "detected": true,
+    "tokens": {
+      "calls": 1,
+      "cached_calls": 0,
+      "input": 2930,
+      "output": 188,
+      "thinking": 0,
+      "output_billed": 188
+    },
+    "seconds": 9.051,
+    "run_id": "bbbp-b3-D5__A3__bf161d39",
+    "tiers": [
+      "T2"
+    ]
+  }
+]

@@ -1,0 +1,79 @@
+/* Reset, type scale (spec section 2), layout shell (section 3). One palette, dark by design: the hull is the subject. */
+
+*, *::before, *::after { box-sizing: border-box; border-radius: 0; }
+html { color-scheme: dark; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--hull); color: var(--chalk-2);
+  font: 400 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, p, ul, ol, figure, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--mark); text-underline-offset: 3px; }
+a:hover { color: var(--mark-hi); }
+code, .mono { font-family: var(--mono); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 8px; top: -64px; background: var(--mark); color: var(--hull); padding: 12px 18px; font-weight: 700; z-index: 10; }
+.skip:focus { top: 8px; }
+:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; }
+main:focus { outline: none; }
+
+/* type scale */
+.t-mark    { font: 900 56px/1 var(--sans); letter-spacing: -0.01em; text-shadow: 0 2px 0 rgba(0,0,0,.45); text-transform: uppercase; }
+.t-page    { font: 900 44px/1.08 var(--sans); letter-spacing: -0.03em; max-width: 28ch; color: var(--chalk); }
+.t-section { font: 900 24px/1.2 var(--sans); letter-spacing: -0.02em; color: var(--chalk); }
+.t-panel   { font: 900 19px/1.25 var(--sans); letter-spacing: -0.015em; color: var(--chalk); }
+.t-finding { font: 700 20px/1.3 var(--sans); letter-spacing: -0.01em; color: var(--chalk); }
+.t-lead    { font: 400 17px/1.6 var(--sans); color: var(--chalk-2); max-width: 66ch; }
+.t-body    { font: 400 16px/1.65 var(--sans); max-width: 66ch; }
+.t-dense   { font: 400 15px/1.5 var(--sans); }
+.t-label   { font: 600 13.5px/1.4 var(--sans); color: var(--mute); }
+.t-fig     { font: 900 34px/1 var(--sans); letter-spacing: -0.03em; color: var(--chalk); font-variant-numeric: tabular-nums; }
+.t-mono    { font: 400 12.5px/1.9 var(--mono); color: var(--mute); }
+.num       { font-variant-numeric: tabular-nums; }
+.slot      { color: var(--mute-2); font-family: var(--mono); }   /* bracketed placeholder for an unmeasured figure */
+
+/* shell */
+.bar {
+  height: 64px; background: var(--boot); border-bottom: 1px solid var(--rule);
+  box-shadow: inset 0 1px 0 rgba(237,234,226,.05);
+}
+.bar-in { max-width: calc(var(--maxw) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); height: 100%; display: flex; align-items: center; gap: 36px; }
+.brand { display: flex; align-items: baseline; gap: 14px; text-decoration: none; }
+.brand b { font: 900 24px/1 var(--sans); letter-spacing: -0.02em; color: var(--chalk); }
+.brand span { font: 400 13.5px/1 var(--sans); color: var(--mute); }
+.nav { display: flex; gap: 4px; height: 100%; }
+.nav a {
+  display: flex; align-items: center; padding: 0 18px; color: var(--chalk-2); text-decoration: none;
+  font: 600 14.5px/1 var(--sans); border-bottom: 3px solid transparent; margin-bottom: -1px;
+  transition: color var(--t-hover) var(--prod), border-color var(--t-hover) var(--prod);
+}
+.nav a:hover { color: var(--chalk); }
+.nav a[aria-current="page"] { color: var(--chalk); border-bottom-color: var(--mark); }
+.chips { margin-left: auto; display: flex; gap: 14px; align-items: center; }
+.chip { font: 500 12px/1 var(--mono); color: var(--mute); padding: 6px 10px; border: 1px solid var(--rule); }
+.chip--warn { color: var(--ember); border-color: var(--ember); }
+
+.wrap { max-width: calc(var(--maxw) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+.page { padding-top: 48px; padding-bottom: 72px; }
+.hero { display: flex; gap: 72px; align-items: flex-start; flex-wrap: wrap; }
+.hero-scale { flex: 0 1 460px; min-width: 340px; }
+.hero-body { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 26px; }
+.section { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 48px; }
+.section > .t-section { margin-bottom: 22px; }
+.stack > * + * { margin-top: 18px; }
+.row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+/* phone width: the header wraps instead of forcing a sideways scroll; the status chips drop to their own row */
+@media (max-width: 760px) {
+  :root { --gutter: 16px; }
+  .bar { height: auto; }
+  .bar-in { flex-wrap: wrap; height: auto; gap: 0 16px; padding-top: 10px; }
+  .brand span { display: none; }
+  .nav { height: 48px; margin-left: -18px; }
+  .chips { margin-left: 0; width: 100%; padding: 0 0 10px; flex-wrap: wrap; gap: 8px; }
+  .t-mark { font-size: 40px; }
+  .t-page { font-size: 32px; }
+  .hero { gap: 32px; }
+  .hero-scale { flex-basis: 100%; }
+}

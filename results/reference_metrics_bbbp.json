@@ -1,0 +1,93 @@
+{
+  "reference": "references/bbbp_clean.py",
+  "date": "2026-10-17",
+  "n_seeds": 10,
+  "versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "scikit-learn": "1.9.1",
+    "rdkit": "2026.3.5",
+    "scikit-fingerprints": "2.1.0"
+  },
+  "splits": {
+    "random": {
+      "auroc_mean": 0.9108523881931481,
+      "auroc_sd": 0.018177541188544442,
+      "comparisons": [
+        {
+          "variant": "radius3",
+          "delta_auroc": 0.00485285842803318,
+          "p_raw": 0.002067949688131915,
+          "p_adj": 0.00442978024460688
+        },
+        {
+          "variant": "radius1",
+          "delta_auroc": 0.006127291915220434,
+          "p_raw": 0.0014765934148689602,
+          "p_adj": 0.00442978024460688
+        },
+        {
+          "variant": "wide",
+          "delta_auroc": 0.0028554259015562966,
+          "p_raw": 0.1949605707070631,
+          "p_adj": 0.1949605707070631
+        }
+      ],
+      "conclusion": "ECFP4 counts + XGBoost reach AUROC 0.911 on a random split (10 repeats). 2 of 3 alternatives differ from ECFP4 after Holm correction."
+    },
+    "scaffold": {
+      "auroc_mean": 0.8869769210385954,
+      "auroc_sd": 0.023590055651711593,
+      "comparisons": [
+        {
+          "variant": "radius3",
+          "delta_auroc": 0.007877357691819298,
+          "p_raw": 0.05048111226530489,
+          "p_adj": 0.15144333679591468
+        },
+        {
+          "variant": "radius1",
+          "delta_auroc": 0.003095986191030242,
+          "p_raw": 0.4089662280724899,
+          "p_adj": 0.8179324561449798
+        },
+        {
+          "variant": "wide",
+          "delta_auroc": -0.0019095377618219,
+          "p_raw": 0.6101435491061458,
+          "p_adj": 0.8179324561449798
+        }
+      ],
+      "conclusion": "ECFP4 counts + XGBoost reach AUROC 0.887 on a scaffold split (10 repeats). 0 of 3 alternatives differ from ECFP4 after Holm correction."
+    },
+    "scaffold_det": {
+      "auroc_mean": 0.836597327921529,
+      "auroc_sd": 0.003067447923743762,
+      "comparisons": [
+        {
+          "variant": "radius3",
+          "delta_auroc": 0.004150660771665149,
+          "p_raw": 0.012642919831039729,
+          "p_adj": 0.025285839662079458
+        },
+        {
+          "variant": "radius1",
+          "delta_auroc": 0.004227972264501778,
+          "p_raw": 0.014017927566199795,
+          "p_adj": 0.025285839662079458
+        },
+        {
+          "variant": "wide",
+          "delta_auroc": 0.010035998163852033,
+          "p_raw": 2.4997890918086472e-06,
+          "p_adj": 7.499367275425942e-06
+        }
+      ],
+      "conclusion": "ECFP4 counts + XGBoost reach AUROC 0.837 on a scaffold_det split (10 repeats). 3 of 3 alternatives differ from ECFP4 after Holm correction."
+    }
+  },
+  "random_minus": {
+    "scaffold": 0.023875467154552688,
+    "scaffold_det": 0.0742550602716191
+  }
+}

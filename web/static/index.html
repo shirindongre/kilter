@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kilter</title>
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Kilter audits a modelling script and says whether the analysis is in kilter, out of kilter, or needs a person.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316302C'/%3E%3Crect x='6' y='9' width='20' height='4' fill='%23E8A33D'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#/" aria-label="Kilter, home"><b>Kilter</b><span>reproducibility gate</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/" data-r="audit">Audit</a>
+      <a href="#/samples" data-r="samples">Samples</a>
+      <a href="#/fleet" data-r="fleet">Fleet</a>
+      <a href="#/history" data-r="history">History</a>
+    </nav>
+    <div class="chips" id="chips"></div>
+  </div>
+</header>
+<main id="main" tabindex="-1"><noscript><div class="page wrap"><p class="t-lead">Kilter's interface needs JavaScript.</p></div></noscript></main>
+<div id="announce" class="sr" role="status" aria-live="polite"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+# The evaluation's audited scripts are keyed by the sha256 of their bytes (artifact cache, critic fixtures, run
+# records), so git must not rewrite their line endings. See AIMS D-025.
+results/variants/*.py -text

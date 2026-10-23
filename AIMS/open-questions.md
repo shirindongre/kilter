@@ -26,3 +26,19 @@ Status: open
 
 ## Q-006 update (2026-10-18)
 gemini-3.6-flash free tier = 20 requests/day, exhausted. Re-pinned to gemini-3.5-flash-lite (D-017). Its daily cap is unknown; if A3 stops on a 429 the log will say so.
+
+## Q-003 update (2026-10-23)
+A git repository exists (HEAD 15b3ff9 "Initial commit: Kilter Phase 1"). Answered. One caveat is in D-025: the code hash in the evaluation records (fdd74ae7...) does not match this checkout's src/kilter (3d833fee...); a commit does not by itself make the records reproducible.
+Status: ANSWERED 2026-10-23
+
+## Q-005 update (2026-10-23)
+The evaluation ran with 48 main variants (8 clean + 8 per class D1-D5; 192 main-set runs across A0/A1/A3/A4), plus 16 holdout and 16 holdout 2. Confirmed from results/runs: 48 records per arm. The N=40 in blueprint 5.1 counts defective variants only. Answered.
+Status: ANSWERED 2026-10-23
+
+## Q-006 update (2026-10-23)
+Still open for the owner: the flash-lite daily cap is not in any file. What the results do show: no 429 or quota error in results/_a3.log, _a3_hold.log, _a1.log, _eval.log or _holdout2_run.log, and holdout 2's 32 critic calls needed 2 retries in total. Read the real limit at https://ai.dev/rate-limit and put it in config/providers.yaml with the date.
+Status: open (owner)
+
+## Q-001 update (2026-10-23)
+Still open (owner). docs/RECORDING.md says what each answer changes: screen-share needs the 90 s recording and a call-software test, in-person needs the phone copy.
+Status: open (owner)

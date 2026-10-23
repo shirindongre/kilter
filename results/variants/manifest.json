@@ -1,0 +1,146 @@
+[
+  {
+    "id": "bace-b0-H5",
+    "base": "bace",
+    "benign": 0,
+    "defect_class": "D5",
+    "site_line": 73,
+    "description": "holdout (H5): non-significant direction acted on",
+    "group": "holdout"
+  },
+  {
+    "id": "bace-b0-HC",
+    "base": "bace",
+    "benign": 0,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): decisive default, numbers quoted",
+    "group": "holdout"
+  },
+  {
+    "id": "bace-b1-H5",
+    "base": "bace",
+    "benign": 1,
+    "defect_class": "D5",
+    "site_line": 73,
+    "description": "holdout (H5): raw p-value treated as support",
+    "group": "holdout"
+  },
+  {
+    "id": "bace-b1-HC",
+    "base": "bace",
+    "benign": 1,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): firm recommendation with the evidence beside it",
+    "group": "holdout"
+  },
+  {
+    "id": "bace-b2-H5",
+    "base": "bace",
+    "benign": 2,
+    "defect_class": "D5",
+    "site_line": 73,
+    "description": "holdout (H5): scope: one benchmark generalised",
+    "group": "holdout"
+  },
+  {
+    "id": "bace-b2-HC",
+    "base": "bace",
+    "benign": 2,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): confident but explicitly scoped",
+    "group": "holdout"
+  },
+  {
+    "id": "bace-b3-H5",
+    "base": "bace",
+    "benign": 3,
+    "defect_class": "D5",
+    "site_line": 73,
+    "description": "holdout (H5): fabricated external benchmark",
+    "group": "holdout"
+  },
+  {
+    "id": "bace-b3-HC",
+    "base": "bace",
+    "benign": 3,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): forceful reading of noise, backed by counts",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b0-H5",
+    "base": "bbbp",
+    "benign": 0,
+    "defect_class": "D5",
+    "site_line": 83,
+    "description": "holdout (H5): mechanism asserted for an untested factor",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b0-HC",
+    "base": "bbbp",
+    "benign": 0,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): decisive default, numbers quoted",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b1-H5",
+    "base": "bbbp",
+    "benign": 1,
+    "defect_class": "D5",
+    "site_line": 83,
+    "description": "holdout (H5): default recommended from one dataset and null comparisons",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b1-HC",
+    "base": "bbbp",
+    "benign": 1,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): firm recommendation with the evidence beside it",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b2-H5",
+    "base": "bbbp",
+    "benign": 2,
+    "defect_class": "D5",
+    "site_line": 83,
+    "description": "holdout (H5): small non-significant gain called meaningful",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b2-HC",
+    "base": "bbbp",
+    "benign": 2,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): confident but explicitly scoped",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b3-H5",
+    "base": "bbbp",
+    "benign": 3,
+    "defect_class": "D5",
+    "site_line": 83,
+    "description": "holdout (H5): readiness for external compounds from internal splits",
+    "group": "holdout"
+  },
+  {
+    "id": "bbbp-b3-HC",
+    "base": "bbbp",
+    "benign": 3,
+    "defect_class": null,
+    "site_line": null,
+    "description": "holdout (HC): forceful reading of noise, backed by counts",
+    "group": "holdout"
+  }
+]

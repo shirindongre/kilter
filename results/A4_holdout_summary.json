@@ -1,0 +1,274 @@
+[
+  {
+    "variant": "bace-b0-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 8.832,
+    "run_id": "bace-b0-H5__A4__cf45bf77",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b0-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 4.113,
+    "run_id": "bace-b0-HC__A4__395cf2ec",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b1-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 3.496,
+    "run_id": "bace-b1-H5__A4__4b162501",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b1-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 3.771,
+    "run_id": "bace-b1-HC__A4__74592cdb",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b2-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 3.368,
+    "run_id": "bace-b2-H5__A4__54db6520",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b2-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 4.229,
+    "run_id": "bace-b2-HC__A4__66de2ede",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b3-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 3.799,
+    "run_id": "bace-b3-H5__A4__ccc5467f",
+    "tiers": []
+  },
+  {
+    "variant": "bace-b3-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 4.796,
+    "run_id": "bace-b3-HC__A4__db2f6efd",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b0-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 11.475,
+    "run_id": "bbbp-b0-H5__A4__98bcfd7e",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b0-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 4.57,
+    "run_id": "bbbp-b0-HC__A4__cb1f08a3",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b1-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 6.498,
+    "run_id": "bbbp-b1-H5__A4__b738fa87",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b1-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 6.998,
+    "run_id": "bbbp-b1-HC__A4__5b920db4",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b2-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 5.952,
+    "run_id": "bbbp-b2-H5__A4__2426d7b8",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b2-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 5.864,
+    "run_id": "bbbp-b2-HC__A4__89290aca",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b3-H5",
+    "truth": "D5",
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 5.925,
+    "run_id": "bbbp-b3-H5__A4__469fe5b6",
+    "tiers": []
+  },
+  {
+    "variant": "bbbp-b3-HC",
+    "truth": null,
+    "verdict": "IN KILTER",
+    "detected": false,
+    "tokens": {
+      "calls": 0,
+      "cached_calls": 0,
+      "input": 0,
+      "output": 0,
+      "thinking": 0,
+      "output_billed": 0
+    },
+    "seconds": 6.021,
+    "run_id": "bbbp-b3-HC__A4__570dc286",
+    "tiers": []
+  }
+]

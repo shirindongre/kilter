@@ -1,0 +1,57 @@
+/* FRONTEND-SPEC sections 1, 2, 5. Nothing is hard-coded after this file. Fonts are self-hosted (works offline). */
+
+@font-face { font-family: "Archivo"; font-weight: 400; font-display: swap; src: url("../fonts/archivo-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 600; font-display: swap; src: url("../fonts/archivo-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 700; font-display: swap; src: url("../fonts/archivo-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo"; font-weight: 900; font-display: swap; src: url("../fonts/archivo-latin-900-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 400; font-display: swap; src: url("../fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 500; font-display: swap; src: url("../fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+
+:root {
+  /* ground */
+  --hull:        #16302C;
+  --boot:        #0E201D;
+  --rule:        #2A4A44;
+  --rule-faint:  #22413C;
+  --scribe:      #35564F;
+
+  /* ink (contrast measured on --hull) */
+  --chalk:       #EDEAE2;   /* 11.4:1 */
+  --chalk-2:     #CFDEDA;   /*  9.9:1 */
+  --chalk-3:     #B9CDC8;   /*  8.3:1 */
+  --mute:        #9DB5AF;   /*  6.3:1 */
+  --mute-2:      #8EA8A2;   /*  5.5:1 */
+  --mute-3:      #7F9D97;   /*  4.8:1 */
+
+  /* signal */
+  --sea:         #3E6F73;
+  --pass:        #7FBAB2;
+  --mark:        #E8B33C;
+  --mark-hi:     #F5C860;
+  --ember:       #E07A4E;
+  --rust:        #A8431F;   /* FILL ONLY. 2.3:1 on --hull: never text on the hull ground. */
+
+  /* motion (IBM Carbon tokens, Atlassian application rules) */
+  --prod:  cubic-bezier(0.2, 0, 0.38, 0.9);
+  --enter: cubic-bezier(0, 0, 0.3, 1);
+  --exit:  cubic-bezier(0.4, 0.14, 1, 1);
+  --t-press: 70ms;  --t-hover: 110ms;  --t-small: 150ms;
+  --t-move: 240ms;  --t-plate: 400ms;  --t-settle: 760ms;
+
+  /* type */
+  --sans: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", Consolas, "Cascadia Mono", monospace;
+
+  /* layout: 8 px base, permitted steps 4 8 12 14 18 22 26 32 36 48 56 64 72 */
+  --gutter: 48px;
+  --maxw: 1344px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduce, do not remove: the end state still arrives (spec section 5, rule 6). */
+  .k-plate, .k-flood, .k-settle, .k-rise, .k-fade, .k-bar, .k-unset, .k-stamp, .k-fail, .k-hatch {
+    animation-duration: 1ms !important; animation-delay: 0ms !important;
+  }
+  .k-glide, .k-mark, .k-row, .k-assert, .k-seg, .k-btn, .k-block, .fline { transition-duration: 1ms !important; }
+  .k-assert, .k-cmd { opacity: 1 !important; }
+}

@@ -37,3 +37,11 @@ Progress 3: holdout2 artifacts built (results/_art_holdout2.log), test_holdout2 
 Progress 4: scripts/run_holdout2.py DONE (results/holdout2_summary.json, results/holdout2/). frozen 4/8 detect, scope 7/8, FP 0/8 both, paired p=0.25. NEXT: scripts/run_eval.py (single code hash), full replay pytest, README Limitations + AIMS (decisions D-023, learnings L-011, context).
 Progress 5: README (Phase 2 section + Limitations), D-023, L-011 written. Waiting only on scripts/run_eval.py (results/_eval.log) and full replay pytest; then rewrite AIMS/context.md and tracker/data.js if it lists Phase 2.
 Progress 6 (DONE): run_eval rerun (1 hash), replay pytest 53 pass, context.md/tracker updated. Task complete; open follow-ups: larger fresh set, second author, repeated samples, stronger model.
+
+## 2026-10-23 - Fleet view, results inspection, Phase 1 close-out
+- Inspected the evaluation's results folder (extracted one level too deep at results/results/; moved up). 256 run records (runs/{A0,A1,A3,A4}[_holdout]) all pass record.verify(); one code hash fdd74ae7... across them and the 32 holdout 2 rows. results/_scratch_runs and _stale hold older records with other hashes (superseded, ignored); holdout 2's 16 A4 records live in _scratch_runs.
+- Found: the checkout hashes to 3d833fee..., not fdd74ae7... (D-025, unresolved). Found: Python 3.12 regenerates 16 of 80 variants with different bytes (L-012); registry now prefers results/variants, artifact_ready 83/83.
+- Built web/fleet.py, adapter.stored_cell/view_from_stored, /api/fleet, #/fleet screen, offline fleet.json, 6 new tests. Full pytest (KILTER_LLM_MODE unset): 67 passed, 1 skipped.
+- Cross-checked every number in README and docs/TALK.md against summary.json, holdout2_summary.json and the records: all agree (no mismatch). Fleet reconciles 28 counts with the summaries.
+- Phase 1 close-out: .gitignore un-ignores small evidence files, .gitattributes for variants, docs/RECORDING.md (90 s script, rehearsal), Q-003/Q-005 answered, Q-001/Q-006 left to the owner, D-025, L-012.
+- Not done: the recording and the timed rehearsal (owner); nothing is committed; `python web/server.py --live` and the split-sensitivity checkbox were not exercised.

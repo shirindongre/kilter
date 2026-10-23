@@ -26,6 +26,7 @@ dependencies = [
 # LLM tier (Day 2). Kept separate so T0/T1 work with zero LLM libraries installed.
 agent = ["langgraph", "google-genai", "python-dotenv"]
 groq = ["groq"]  # optional second provider; Cerebras dropped (paid), see AIMS D-012
+web = ["fastapi", "uvicorn"]  # local UI in web/ (AIMS D-024)
 dev = ["pytest"]
 
 [project.scripts]
