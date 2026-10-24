@@ -164,11 +164,14 @@ Read these before relying on any number above.
 ```bash
 python scripts/build_artifacts.py          # execute every variant once (about 30 min; cached by script hash)
 python scripts/run_eval.py                 # all arms, both sets, from recorded LLM responses (about 10 min, offline)
+python scripts/run_holdout2.py             # holdout 2: frozen and scope prompts (replay: KILTER_LLM_MODE=replay)
 python -m kilter.eval.figures              # the three figures
 pytest                                     # 40+ tests; set KILTER_LLM_MODE=replay to run fully offline
 ```
 
 `KILTER_LLM_MODE` is `record` (default: read-through cache), `replay` (never calls the API) or `live`.
+
+`results/variants/` is tracked and is the source of truth for the audited scripts: the generators are not byte-stable across Python versions, so the scripts above never overwrite an existing variant file (AIMS L-012, D-029). The code hash ignores line endings (D-028).
 
 ## Layout
 

@@ -17,7 +17,8 @@ from kilter.core.adjudicator import adjudicate
 from kilter.core.astutil import module_constants
 from kilter.core.datacard import data_card
 from kilter.core.tiers import t2_critic, t2_scope
-from kilter.defects.variants import generate_holdout2, write_variants
+from evalutil import keep_evaluated
+from kilter.defects.variants import generate_holdout2
 from kilter.eval.artifacts import artifact_for
 from kilter.eval.metrics import clopper_pearson, hit, paired_exact
 from kilter.graph.pipeline import audit_full
@@ -69,7 +70,7 @@ def summarize(variants, rows: dict[str, dict[str, dict]]) -> dict:
 def main() -> None:
     variants = generate_holdout2()
     vdir = ROOT / "results" / "variants"
-    write_variants(variants, vdir)
+    keep_evaluated(variants, vdir)
     rows: dict[str, dict[str, dict]] = {p: {} for p in PROMPTS}
     try:
         for i, v in enumerate(variants, 1):

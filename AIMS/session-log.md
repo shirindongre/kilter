@@ -54,3 +54,13 @@ Progress 6 (DONE): run_eval rerun (1 hash), replay pytest 53 pass, context.md/tr
 ## 2026-10-23 - Code-hash mismatch resolved (D-027)
 - Owner ran code_hash() on the evaluation machine: fdd74ae7..., Python 3.11.9, git clean. Per-file comparison with this checkout: 13 identical, 21 identical after CRLF -> LF, 0 different; hash rebuilt with the evaluation machine's endings equals fdd74ae7 exactly. Line endings only.
 - Fleet integrity message reworded to say the hash covers raw bytes. Open decision for the owner: make code_hash() line-ending independent and rerun the evaluation (changes the hash).
+
+## 2026-10-23 - code_hash() made line-ending independent (D-028)
+- Owner's call: normalise CRLF to LF inside code_hash(). Done in core/record.py with a test. New tree hash 8eef0f35...; the evaluation's records (fdd74ae7...) are stale until the evaluation is rerun on Python 3.11 (steps in D-028). Not rerun here: 3.12 regenerates 16 variants with different bytes (L-012) and run_eval.py rewrites results/variants.
+
+## 2026-10-23 - Evaluation rerun on the source-of-truth machine (D-029)
+- Owner: this machine is the source of truth. Backed up results/, patched the eval scripts to keep the tracked variant bytes, reran run_eval.py (14 min) and run_holdout2.py in replay. 256 records + 32 holdout 2 rows carry 8eef0f35...; digests verify; fleet 28/28 counts agree, no problems listed.
+- Identical to the first evaluation: all verdicts, findings, tokens, input hashes, figures. Different: wall-clock seconds (slower machine), library versions, float noise in intervals. Artifacts were not refit (caveat in D-029).
+
+## 2026-10-23 - Tracker brought up to date
+- tracker/data.js now has Phase 2 (done: scope prompt, web UI, fleet view, number checks, hash fix and rerun, --live/sensitivity; active: review and commit; waiting on owner: Q-001, Q-006) and a Next phase (7 remaining items). index.html board reads In progress / Remaining / Done. Open tracker/index.html (or serve tracker/ over http) to see it.

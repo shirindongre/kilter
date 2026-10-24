@@ -8,7 +8,8 @@ import sys
 import time
 from pathlib import Path
 
-from kilter.defects.variants import generate_holdout, generate_holdout2, generate_variants, write_variants
+from evalutil import keep_evaluated
+from kilter.defects.variants import generate_holdout, generate_holdout2, generate_variants
 from kilter.eval.artifacts import ARTIFACT_DIR, ARTIFACT_SEEDS, artifact_for
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,7 +19,7 @@ def main() -> None:
     which = sys.argv[1] if len(sys.argv) > 1 else "main"
     variants = {"holdout": generate_holdout, "holdout2": generate_holdout2}.get(which, generate_variants)()
     out = ROOT / "results" / "variants"
-    write_variants(variants, out)
+    keep_evaluated(variants, out)
     t0 = time.time()
     for i, v in enumerate(variants, 1):
         path = out / f"{v.id}.py"

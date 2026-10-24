@@ -11,8 +11,8 @@
 |---|---|---|---|---|
 | A0 | 0.0 | 0 | 0 | 0.0 |
 | A1 | 2.0 | 5,573 | 270 | 10.2 |
-| A3 | 1.0 | 2,914 | 176 | 4.1 |
-| A4 | 0.0 | 0 | 0 | 2.1 |
+| A3 | 1.0 | 2,914 | 176 | 8.1 |
+| A4 | 0.0 | 0 | 0 | 6.5 |
 
 Exploratory (not a pre-registered arm): did the self-critique turn help?
 
@@ -34,8 +34,8 @@ Exploratory (not a pre-registered arm): did the self-critique turn help?
 |---|---|---|---|---|
 | A0 | 0.0 | 0 | 0 | 0.0 |
 | A1 | 2.0 | 5,538 | 175 | 4.0 |
-| A3 | 1.0 | 2,855 | 90 | 4.1 |
-| A4 | 0.0 | 0 | 0 | 3.0 |
+| A3 | 1.0 | 2,855 | 90 | 8.5 |
+| A4 | 0.0 | 0 | 0 | 6.9 |
 
 Exploratory (not a pre-registered arm): did the self-critique turn help?
 

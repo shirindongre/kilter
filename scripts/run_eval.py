@@ -16,7 +16,8 @@ from pathlib import Path
 
 os.environ.setdefault("KILTER_LLM_MODE", "replay")
 
-from kilter.defects.variants import generate_holdout, generate_variants, write_variants  # noqa: E402
+from evalutil import keep_evaluated  # noqa: E402
+from kilter.defects.variants import generate_holdout, generate_variants  # noqa: E402
 from kilter.eval.arms import ARMS, run_arm  # noqa: E402
 from kilter.eval import summarize  # noqa: E402
 
@@ -30,7 +31,7 @@ def main() -> None:
     t0 = time.time()
     for which, gen in (("main", generate_variants), ("holdout", generate_holdout)):
         variants = gen()
-        write_variants(variants, vdir)
+        keep_evaluated(variants, vdir)
         suffix = "" if which == "main" else "_holdout"
         for arm in ARMS:
             for i, v in enumerate(variants, 1):

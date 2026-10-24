@@ -41,3 +41,22 @@ def test_full_arm_replays_offline_from_fixtures(tmp_path, monkeypatch):
     assert t["calls"] == 1 and t["cached_calls"] == 1 and t["input"] > 0
     assert "T2.critic" in res.checks_run
     assert r.model["reported"] == [load_config()["pinned_for_reported_results"]["model"]]
+
+
+def test_code_hash_ignores_line_endings_but_not_code(tmp_path, monkeypatch):
+    """AIMS D-028: the same code checked out with LF or CRLF must hash the same; a code change must not."""
+    def tree(name, text, eol):
+        root = tmp_path / name
+        (root / "core").mkdir(parents=True)
+        (root / "core" / "a.py").write_bytes(text.replace("\n", eol).encode())
+        (root / "eval").mkdir()
+        (root / "eval" / "summarize.py").write_bytes(b"analysis only, ignored")
+        return root
+
+    def hash_of(root):
+        monkeypatch.setattr(rec, "PACKAGE_ROOT", root)
+        return rec.code_hash()
+
+    code = "x = 1\nif x:\n    y = 2\n"
+    assert hash_of(tree("lf", code, "\n")) == hash_of(tree("crlf", code, "\r\n"))
+    assert hash_of(tree("lf2", code, "\n")) != hash_of(tree("edited", code.replace("2", "3"), "\n"))

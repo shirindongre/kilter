@@ -30,13 +30,17 @@ ANALYSIS_ONLY = frozenset({"eval/metrics.py", "eval/summarize.py", "eval/figures
 
 
 def code_hash() -> str:
-    """Hash of the verifier: every .py file in the kilter package except analysis-only modules."""
+    """Hash of the verifier: every .py file in the kilter package except analysis-only modules.
+
+    Line endings are normalised to LF first, so the hash does not depend on how git checked the files out
+    (core.autocrlf, an editor): two checkouts of the same code agree (AIMS D-028).
+    """
     h = hashlib.sha256()
     for f in sorted(PACKAGE_ROOT.rglob("*.py")):
         if f.relative_to(PACKAGE_ROOT).as_posix() in ANALYSIS_ONLY:
             continue
         h.update(f.relative_to(PACKAGE_ROOT).as_posix().encode())
-        h.update(f.read_bytes())
+        h.update(f.read_bytes().replace(b"\r\n", b"\n"))
     return h.hexdigest()
 
 

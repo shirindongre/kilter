@@ -55,3 +55,6 @@ Confidence still saturates (0.90-1.00 on every finding; no ESCALATE), so the abs
 
 ## L-013 - The code hash is sensitive to line endings (2026-10-23)
 code_hash() hashes raw bytes of every .py under src/kilter. A Windows checkout with core.autocrlf=true and a tree written by tools that save LF can differ file by file (the evaluation machine: 21 LF, 13 CRLF). To compare two trees, list per-file hashes and CRLF counts on both and diff them, then re-hash after normalising; do not compare the totals. Fix if wanted: hash CRLF-normalised bytes and rerun the evaluation once (D-027).
+
+## L-012 update (2026-10-23)
+The evaluation scripts (run_eval, run_holdout2, build_artifacts, run_arm) no longer overwrite results/variants: they write only missing files (scripts/evalutil.py). Without this, running them on Python 3.12 would have replaced the tracked, evaluated bytes with the 3.12 rendering and orphaned the artifact cache and critic recordings.

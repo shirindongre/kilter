@@ -10,7 +10,8 @@ import sys
 import time
 from pathlib import Path
 
-from kilter.defects.variants import generate_holdout, generate_variants, write_variants
+from evalutil import keep_evaluated
+from kilter.defects.variants import generate_holdout, generate_variants
 from kilter.eval.score import detected
 from kilter.eval.arms import ARMS, run_arm
 
@@ -23,7 +24,7 @@ def main(arm: str, which: str = "main") -> None:
     variants = generate_holdout() if which == "holdout" else generate_variants()
     tag = "" if which == "main" else f"_{which}"
     vdir = ROOT / "results" / "variants"
-    write_variants(variants, vdir)
+    keep_evaluated(variants, vdir)
     runs = ROOT / "results" / "runs" / f"{arm}{tag}"
     rows, t0 = [], time.time()
     for i, v in enumerate(variants, 1):

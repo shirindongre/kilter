@@ -62,15 +62,41 @@
   .future ul { margin: 6px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--muted); }
   .future li { margin-bottom: 4px; }
   .empty { color: var(--muted); font-size: 13px; padding: 4px 2px; }
+  .task.active .note, .task.todo .note { color: var(--muted); }
+  .owner { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; color: var(--blocked); border: 1px solid var(--blocked); border-radius: 4px; padding: 0 4px; margin-right: 6px; vertical-align: 1px; }
+  .badge { font-size: 11.5px; font-weight: 600; border-radius: 99px; padding: 1px 8px; background: var(--blocked-bg); color: var(--blocked); white-space: nowrap; }
+  .next { margin: 0; padding-left: 20px; font-size: 14px; }
+  .next li { margin-bottom: 6px; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  .tbl th, .tbl td { text-align: left; padding: 7px 8px; border-top: 1px solid var(--line); }
+  .tbl th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; border-top: 0; }
+  .tbl td.c, .tbl th.c { text-align: center; }
+  .tbl .num { font-weight: 600; }
+  .cell { display: inline-block; min-width: 34px; padding: 1px 6px; border-radius: 5px; background: var(--todo-bg); }
+  .cell.full { background: var(--done-bg); color: var(--done); font-weight: 600; }
+  .cell.part { background: var(--active-bg); color: var(--active); font-weight: 600; }
+  .scroll { overflow-x: auto; }
+  .held { margin: 12px 0 0; padding: 0; list-style: none; font-size: 13.5px; }
+  .held li { padding: 6px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .held span.p { color: var(--muted); }
+  .insights { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .insight { border-left: 3px solid var(--todo); }
+  .insight.risk { border-left-color: var(--blocked); }
+  .insight.gap { border-left-color: var(--active); }
+  .insight.win { border-left-color: var(--done); }
+  .insight .k { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .insight.risk .k { color: var(--blocked); } .insight.gap .k { color: var(--active); } .insight.win .k { color: var(--done); }
+  .insight h3 { margin: 2px 0 6px; font-size: 14.5px; }
+  .insight p { margin: 0; font-size: 13.5px; color: var(--muted); }
   button { font: inherit; font-size: 12px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
-  @media (max-width: 760px) { .hero, .cols, .future { grid-template-columns: 1fr; } .pct { font-size: 44px; } }
+  @media (max-width: 760px) { .hero, .cols, .future, .insights { grid-template-columns: 1fr; } .pct { font-size: 44px; } }
 </style>
 </head>
 <body>
 <main>
   <div class="top">
     <div>
-      <h1>Kilter <span class="sub">· Phase 1 tracker</span></h1>
+      <h1>Kilter <span class="sub">· project tracker</span></h1>
       <div class="sub" id="updated"></div>
     </div>
     <button id="theme" type="button">Toggle theme</button>
@@ -85,12 +111,22 @@
     <div class="card" id="phases"></div>
   </div>
 
+  <h2>Suggested order for the next sitting</h2>
+  <div class="card"><ol class="next" id="next"></ol></div>
+
   <h2>Work board</h2>
+  <div class="legend" style="margin:-4px 0 10px"><span>Red-edged items are waiting on you, not on code.</span></div>
   <div class="cols" id="board"></div>
 
   <h2>Feature map</h2>
   <div class="card" id="features"></div>
-  <div class="legend"><span>● done</span><span>● in progress</span><span>● blocked</span><span>● not started</span> <span>— status is derived from the linked tasks</span></div>
+  <div class="legend"><span>● done</span><span>● in progress</span><span>● waiting on you</span><span>● not started</span> <span>— status is derived from the linked tasks</span></div>
+
+  <h2>Evidence snapshot</h2>
+  <div class="card" id="evidence"></div>
+
+  <h2>Risks, gaps and what is strong</h2>
+  <div class="insights" id="insights"></div>
 
   <h2>Future work</h2>
   <div class="future" id="future"></div>
@@ -114,26 +150,30 @@
   var done = count(D.tasks, "done"), act = count(D.tasks, "active");
   var p = pct(done + act * 0.5, D.tasks.length);
   document.getElementById("pct").innerHTML = p + "<small>%</small>";
-  document.getElementById("pctsub").textContent = done + " of " + D.tasks.length + " tasks done · " + act + " in progress · " + count(D.tasks, "blocked") + " blocked";
+  document.getElementById("pctsub").textContent = done + " of " + D.tasks.length + " tasks done · " + act + " in progress · " + count(D.tasks, "blocked") + " waiting on you · " + count(D.tasks, "todo") + " remaining";
   document.getElementById("mainbar").outerHTML = bar(D.tasks);
 
   document.getElementById("phases").innerHTML = D.phases.map(function (ph) {
     var ts = D.tasks.filter(function (t) { return t.phase === ph.id; });
-    return '<div class="phase"><div class="row"><b>' + esc(ph.name) + '</b><span class="sub">' + count(ts, "done") + '/' + ts.length + ' · ' + esc(ph.when) + '</span></div>' + bar(ts) + '<div class="gate">Gate: ' + esc(ph.gate) + '</div></div>';
+    // Overdue: a phase with unfinished tasks whose planned date has passed (counted in whole days from today).
+    var open = ts.length - count(ts, "done"), late = 0;
+    if (ph.due && open) late = Math.floor((new Date().setHours(0, 0, 0, 0) - new Date(ph.due + "T00:00:00").getTime()) / 864e5);
+    var badge = late > 0 ? ' <span class="badge">' + late + ' d overdue · ' + open + ' open</span>' : '';
+    return '<div class="phase"><div class="row"><b>' + esc(ph.name) + badge + '</b><span class="sub">' + count(ts, "done") + '/' + ts.length + ' · ' + esc(ph.when) + '</span></div>' + bar(ts) + '<div class="gate">Gate: ' + esc(ph.gate) + '</div></div>';
   }).join("");
 
   function taskHtml(t) {
-    return '<div class="task ' + t.status + '"><span class="id">' + esc(t.id) + '</span>' + esc(t.title) + (t.note ? '<span class="note">' + esc(t.note) + '</span>' : '') + '</div>';
+    return '<div class="task ' + t.status + '"><span class="id">' + esc(t.id) + '</span>' + (t.owner === "you" ? '<span class="owner">YOU</span>' : '') + esc(t.title) + (t.note ? '<span class="note">' + esc(t.note) + '</span>' : '') + '</div>';
   }
   var cols = [
-    { title: "In progress & blocked", pick: function (t) { return t.status === "active" || t.status === "blocked"; } },
-    { title: "Up next", pick: function (t) { return t.status === "todo"; }, limit: 8 },
-    { title: "Completed", pick: function (t) { return t.status === "done"; } }
+    { title: "In progress", pick: function (t) { return t.status === "active" || t.status === "blocked"; } },
+    { title: "Remaining", pick: function (t) { return t.status === "todo"; } },
+    { title: "Done", pick: function (t) { return t.status === "done"; }, limit: 6, newest: true }
   ];
   document.getElementById("board").innerHTML = cols.map(function (c) {
-    var ts = D.tasks.filter(c.pick), shown = c.limit ? ts.slice(0, c.limit) : ts;
+    var ts = D.tasks.filter(c.pick), shown = c.limit ? (c.newest ? ts.slice(-c.limit).reverse() : ts.slice(0, c.limit)) : ts;
     var body = shown.map(taskHtml).join("") || '<div class="empty">Nothing here yet</div>';
-    if (shown.length < ts.length) body += '<div class="empty">+ ' + (ts.length - shown.length) + ' more</div>';
+    if (shown.length < ts.length) body += '<div class="empty">+ ' + (ts.length - shown.length) + ' earlier tasks (all listed in tracker/data.js)</div>';
     return '<div class="card col"><h3>' + c.title + ' <b>' + ts.length + '</b></h3>' + body + '</div>';
   }).join("");
 
@@ -149,6 +189,27 @@
     return '<div class="group"><h4>' + esc(g.group) + '</h4><div class="chips">' + g.items.map(function (f) {
       return '<span class="chip ' + featStatus(f) + '">' + esc(f.name) + '</span>';
     }).join("") + '</div></div>';
+  }).join("");
+
+  document.getElementById("next").innerHTML = (D.next || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join("");
+
+  var E = D.evidence;
+  if (E) {
+    var cell = function (k) { return '<span class="cell ' + (k === 8 ? "full" : k > 0 ? "part" : "") + '">' + k + '/8</span>'; };
+    document.getElementById("evidence").innerHTML =
+      '<div class="scroll"><table class="tbl"><thead><tr><th>Arm</th>' + E.classes.map(function (c) { return '<th class="c">' + esc(c) + '</th>'; }).join("") +
+      '<th class="c">All defects</th><th class="c">95% CI</th><th class="c">False pos.</th><th class="c">Input tok / audit</th></tr></thead><tbody>' +
+      E.arms.map(function (a) {
+        return '<tr><td><b>' + esc(a.arm) + '</b> <span class="sub">' + esc(a.name) + '</span></td>' + a.per.map(function (k) { return '<td class="c">' + cell(k) + '</td>'; }).join("") +
+          '<td class="c num">' + esc(a.total) + '</td><td class="c">' + esc(a.ci) + '</td><td class="c">' + esc(a.fp) + '</td><td class="c">' + esc(a.tokens) + '</td></tr>';
+      }).join("") + '</tbody></table></div>' +
+      '<ul class="held">' + E.held.map(function (h) { return '<li><span><b>' + esc(h.label) + '</b> · ' + esc(h.result) + '</span><span class="p">' + esc(h.p) + '</span></li>'; }).join("") + '</ul>' +
+      '<div class="sub" style="margin-top:10px">' + esc(E.note) + '</div><div class="sub">Source: ' + esc(E.source) + '</div>';
+  }
+
+  var kindLabel = { risk: "Risk", gap: "Gap", note: "Note", win: "Strong" };
+  document.getElementById("insights").innerHTML = (D.insights || []).map(function (i) {
+    return '<div class="card insight ' + esc(i.kind) + '"><div class="k">' + esc(kindLabel[i.kind] || i.kind) + '</div><h3>' + esc(i.title) + '</h3><p>' + esc(i.body) + '</p></div>';
   }).join("");
 
   document.getElementById("future").innerHTML = D.future.map(function (f) {
